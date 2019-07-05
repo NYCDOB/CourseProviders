@@ -2,29 +2,36 @@
 <html>
 <head>
     <meta charset=utf-8 />
-    <title>Esri Leaflet Geocoder</title>
+    <title>Course Providers</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
-    <!-- Load Leaflet from CDN -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet/dist/leaflet-src.js"></script>
-
-    <!-- Load Esri Leaflet from CDN -->
-    <script src="https://unpkg.com/esri-leaflet"></script>
-
-    <!-- Esri Leaflet Geocoder -->
-    <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css">
-    <script src="https://unpkg.com/esri-leaflet-geocoder"></script>
+    <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css">	
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.12/r-2.1.0/se-1.2.0/datatables.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/keen-dashboards.css" />
+	<link rel="stylesheet" type='text/css' href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type='text/css' href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type='text/css' href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
 	
 	
     <style>
-    #map {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-    }
+	html { 
+		height: 100% 
+	}
+	body { 
+		height: 100%; 
+		margin: 0; 
+		padding: 0;
+		font-size: 12px;
+		font-family: Arial, Helvetica, sans-serif;	
+	}	
+	#map {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		background-color: #333;
+		pointer-events: all;
+	}
 	
 	div.tooltip {
 		color: #222;
@@ -43,17 +50,278 @@
 		fill: #f00000;
 		fill-opacity: .7;
 	}
+	#map-container{
+		height: 910px;
+		width: 100%;
+		border: 3px solid black;
+		position: relative;
+		display: block;
+	}
+	#table-container{
+		height: 910px;
+		width: 100%;
+		border: 3px solid black;
+		display: block;
+		background-color: white;
+	}
+
+	#cpTable{
+		height: 100%;
+		font-size: 12px;
+		overflow-y:auto;
+	}
+	.courseHeading {
+		background-color: #7a7a7a;
+		color: #ffffff;
+		font-style: italic; 
+		font-weight: bold;
+		
+	}
+	
+	#dropdownCourses {
+	  width: 200px;
+	  max-width: 100%;
+	}
+	.filterBtn {
+		padding: 2px 3px 2px 3px;
+		background: #46A6DD;
+		color: white;
+		font-size: 14px;
+		<!-- font-weight: bold; -->
+		display: inline-block;
+		<!-- float: right; -->
+		<!-- margin-left: 20px; -->
+		<!-- position: absolute; -->
+	}
+	.filterBtn:hover {
+		background: #002878;
+	}
+	.clearBtn {
+		padding: 2px 3px 2px 3px;
+		background: #46A6DD;
+		color: white;
+		font-size: 14px;
+		<!-- font-weight: bold; -->
+		display: inline-block;
+		<!-- float: right; -->
+		<!-- margin-left: 20px; -->
+		<!-- position: absolute; -->
+	}
+	.clearBtn:hover {
+		background: #002878;
+	}
+	#filterTxt {
+		font-size: 18px;
+		font-weight: bold;
+		color: #46A6DD;
+	}
+	
+	table.dataTable tbody tr:not(.selected):hover {  
+	   background-color:#dee1e5 !important;
+	}
+	
+	
+	.datatableHeading > dt-buttons{
+		color: green;
+	}
+
+	#filingsTable_filter input {
+		margin-left: 0.5em;
+		width: 140px;
+	}
+	
+
+
+	#searchCriteria {
+		font-size: 14px;
+		color: red;
+		display: hide;
+		font-weight: 700;
+		margin-left: 10px;
+	
+	}
+
+	td.control::before {
+		 content: attr(data-before);
+	
+	}
+
+
+	#filterDisplayMapData{
+		display: none;
+	}
+
+
+	#templateFilterQry {
+		display:none;
+	}
+
+
+
+	/* override Bootstrap's override of search styling; gives us the X to clear the search text */
+	input[type="search"]::-webkit-search-decoration,  
+	input[type="search"]::-webkit-search-cancel-button {   
+		-webkit-appearance: searchfield-cancel-button;
+	}
+
+
+	
+	td:not(.control) {
+		cursor: pointer;
+	}
+	
+	
+	td.control::before, td.control::after, td.control{
+		cursor: default;
+	}
+
     </style>
 </head>
 
 <body>
-    <div id="map"></div>
-	
+<div class="row" style="padding-top:5px; padding-bottom:5px;">
+	<div class="col-md-9">	
+			<form id="searchCourse" class="" style="padding-left:10px;font-size:1.3em;"> 
+			<!-- <form id="searchCourse" class="" style="float:right;font-size:1.3em;">   -->
+			<span id="filterTxt">FILTER COURSE PROVIDERS</span>
+						<span style="padding-right:20px"></span>
+						
+						<label for="" style="color:#666666;">Courses: </label>
+								<select id="dropdownCourses" >
+									<option value='allCourses'>All Courses</option>
+									<option class='courseHeading' value='' disabled>CONCRETE COURSES</option>
+									<option value=''>30-Hour Concrete Safety Manager</option>
+									<option value=''>8-Hour Concrete Safety Manager Refresher</option>
+									<option value=''>Cranes & Derrick Courses</option>
+									<option value=''>16-Hour Rigger Supervisor Refresher</option>
+									<option value=''>16-Hour Rigging Worker</option>
+									<option value=''>30-Hour Climber/Tower Crane Rigger</option>
+									<option value=''>30-Hour Master Rigger</option>
+									<option value=''>30-Hour Special Rigger</option>
+									<option value=''>32-Hour Rigging Supervisor</option>
+									<option value=''>4-Hour Mast Climber User & Operator</option>
+									<option value=''>8-Hour Climber/Tower Crane Rigger Renewal</option>
+									<option value=''>8-Hour Hoisting Machine Operator Class B Rating</option>
+									<option value=''>8-Hour Master Rigger Renewal</option>
+									<option value=''>8-Hour Rigging Worker Refresher</option>
+									<option value=''>8-Hour Special Rigger Renewal</option>
+									<option class='courseHeading' value='' disabled>ELECTRICAL COURSES</option>
+									<option value=''>8-Hour Master & Special Electrician Renewal</option>
+									<option class='courseHeading' value='' disabled>GENERAL ELECTIVE COURSES</option>
+									<option value=''>1-Hour Electrocution Prevention</option>
+									<option value=''>1-Hour Fire Protection and Prevention</option>
+									<option value=''>1-Hour First Aid and CPR</option>
+									<option value=''>1-Hour Handing Heavy Materials and Proper Lifting Techniques</option>
+									<option value=''>1-Hour Hoisting and Rigging</option>
+									<option value=''>1-Hour Materials Handling, Storage, Use, and Disposal</option>
+									<option value=''>1-Hour Protection from Sun Exposure</option>
+									<option value=''>1-Hour Repetitive Motion Injuries</option>
+									<option value=''>1-Hour Stairways and Ladders</option>
+									<option value=''>1-Hour Tools-Hand and Power</option>
+									<option class='courseHeading' value='' disabled>PLUMBING COURSES</option>
+									<option value=''>16-Hour Limited Gas Work Qualification</option>
+									<option value=''>7-Hour Master Plumber & Master Suppression Piping Contractor Renewal</option>
+									<option value=''>7-Hour Periodic Gas Piping Inspector Qualification</option>
+									<option class='courseHeading' value='' disabled>PRESCRIBED COURSES</option>
+									<option value=''>2-Hour ‘Tool Box’ Talks</option>
+									<option value=''>2-Hour Drug and Alcohol Awareness</option>
+									<option value=''>2-Hour Pre-Task Meeting</option>
+									<option value=''>2-Hour Site Safety Plan (SSP)</option>
+									<option value=''>4-Hour Fall Prevention</option>
+									<option value=''>4-Hour Supported Scaffold User & Refresher</option>
+									<option value=''>8-Hour Fall Prevention</option>
+									<option value=''>8-Hour Site Safety Manager Refresher / Chapter 33</option>
+									<option class='courseHeading' value='' disabled>SAFETY COURSES</option>
+									<option value=''>40-Hour Site Safety Manager</option>
+									<option value=''>4-Hour Supported Scaffold User & Refresher</option>
+									<option value=''>8-Hour Site Safety Coordinator</option>
+									<option value=''>8-Hour Site Safety Manager Refresher / Chapter 33</option>
+									<option class='courseHeading' value='' disabled>SCAFFOLD COURSES</option>
+									<option value=''>16-Hour Suspended Scaffold User</option>
+									<option value=''>32-Hour Supported Scaffold Installer & Remover</option>
+									<option value=''>32-Hour Suspended Scaffold Supervisor</option>
+									<option value=''>4-Hour Supported Scaffold User & Refresher</option>
+									<option value=''>8-Hour Supported Scaffold Installer & Remover Refresher</option>
+									<option value=''>8-Hour Suspended Scaffold Supervisor Refresher</option>
+									<option value=''>8-Hour Suspended Scaffold User Refresher</option>
+									<option class='courseHeading' value='' disabled>SPECIALIZED ELECTIVE COURSES</option>
+									<option value=''>1-Hour Asbestos/Lead Awareness</option>
+									<option value=''>1-Hour Concrete and Masonry Construction</option>
+									<option value=''>1-Hour Confined Space Entry</option>
+									<option value=''>1-Hour Cranes, Derricks, Hoists, and Conveyors</option>
+									<option value=''>1-Hour Demolition Safety</option>
+									<option value=''>1-Hour Ergonomics</option>
+									<option value=''>1-Hour Excavations</option>
+									<option value=''>1-Hour Flag Person</option>
+									<option value=''>1-Hour Health and Safety Programs in Construction</option>
+									<option value=''>1-Hour Job Hazard Analysis</option>
+									<option value=''>1-Hour Motor Vehicles, Mechanized Equipment and Marine Operations</option>
+									<option value=''>1-Hour Personnel Lifts/Aerial Lifts/Scissor Lifts Safety</option>
+									<option value=''>1-Hour Risk Assessment and Accident Investigation</option>
+									<option value=''>1-Hour Scaffolds-Suspended</option>
+									<option value=''>1-Hour Steel Erection</option>
+									<option value=''>1-Hour Welding and Cutting</option>
+									<option value=''>2.5-Hour Foundations of Safety Leadership</option>
+									<option value=''>2-Hour Drug and Alcohol Awareness</option>
+									<option value=''>8-Hour Fall Prevention</option>
+								</select>
+								<span style="padding-right:20px"></span>
+						<label for="" style="color:#666666;">SST Approved: </label>
+								<select id="dropdownSST" >
+									<option value="sstAll" selected="selected">All</option>
+									<option value="sstYes">Yes</option>	
+									<option value="sstNo">No</option>
+								</select>
+						
+						<span style="padding-right:20px"></span>
+								<button class="filterBtn" id="fltr_btn">APPLY FILTER</button>
+								<button class="clearBtn" id="clr_btn">CLEAR FILTER</button>
+			</form>
+			
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-9">
+		<div class="chart-stage" id="map-container">
+			<div id="map"></div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="chart-wrapper" id="table-container">
+		  <div class="chart-stage" id="chart-01">
+					<table id="cpTable" class="display" style="width:100%">
+						<thead>
+							<tr>
+								<th></th>
+								<!-- <th class="">Provider Number</th>  -->
+								<th class="">Course Provider</th>
+								<th class="none">Provider Number</th>
+								<th class="none">Address</th>
+								<th class="none">Phone</th>
+								<th class="none">Fax</th>
+								<th class="none">Web Page</th>								
+							</tr>						
+						</thead>
+					</table>
+
+		  </div>
+		</div>
+	</div>
+</div>
+	<script src="https://unpkg.com/leaflet/dist/leaflet-src.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.9/d3.min.js"></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-	<script src="Leaflet.D3SvgOverlay-master/L.D3SvgOverlay.min.js"></script>
+	<script src="Leaflet.D3SvgOverlay-master/L.D3SvgOverlay.min.js"></script>	
+    <script src="https://unpkg.com/esri-leaflet"></script>
+	<script src="https://unpkg.com/esri-leaflet-geocoder"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/v/dt/dt-1.10.12/r-2.1.0/se-1.2.0/datatables.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
     <script>
-    var map = L.map('map').setView([40.791384, -73.883770], 10);
+$(document).ready(function(){
+	
+	var map = L.map('map').setView([40.791384, -73.883770], 10);
 	L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png', {attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
 
     // create the geocoding control and add it to the map
@@ -144,7 +412,7 @@
 				d.latLng = [+d.Lat,+d.Long];
 				d.id = d["Provider Number"];
 				d.company = [d.Company];
-				d.Full_Address = [d.Full_Address];
+				d.full_Address = [d.Full_Address];
 				d.phone = d["Business Phone"];
 				d.fax = d["Fax Number"];
 				d.web = d["Web Page"];
@@ -152,8 +420,164 @@
 			return d;
 			});
 		pointsOverlay.addTo(map);
+		loadTable(data);
 	});
+	
+	function loadTable(data){
+		$(function(){
+		
+		
+				var table = $('#cpTable').DataTable({
+				
+						data: data,
+						
+						'responsive': {
+							'details': {
+							   'type': 'inline',
+							   'target': 0
+							}
+						},
+						
+						columnDefs: [
+									{
+									   'data': null,
+									   'defaultContent': '',
+									   'className': 'control',
+									   'orderable': false,
+									   'targets': 0
 
+									}
+						],
+						  'columns': [ 
+							 { 'data': null },  
+							 { 'data': "Company", "className":"parentRow"  },					 
+							 
+							 { 'data': "Provider Number" },
+							 { 'data': "Full_Address" },
+							 { 'data': "Business Phone" },
+							 { 'data': "Fax Number" },
+							 { 'data': "Web Page",
+							   'render': function(data,type,row,meta){ 
+									return '<a href=' + data + ' target="_blank">' + data + '</a>';
+							 }}
+							 
+						  ],
+						  
+						  
+							"dom": 'r<"datatableHeading"Bf>tip',
+							"buttons": [
+							
+								// BASIC EXPORT (minified)
+								/*{extend: 'csvHtml5',text: 'Export Data',customize: function(csv){return csv;}},*/
+								
+								
+								{ // EXPORT ALL DATA, DISREGARD ANY SEARCH THAT IS APPLIED
+								
+								
+									extend: 'csv',
+									titleAttr: 'Download all data to CSV',
+									filename: "CourseProvidersData",
+									className: "csvExportClassname",
+									text: 'Export',
+									exportOptions: {
+										modifier: {
+											search: 'none'
+										},
+									columns: 'th:not(:first-child)'  //we don't need the first column (ie 0)
+									}
+								}
+								/*
+								,
+								
+								
+								{ //DEFINE ACTIONS WHEN SELECT 'RESET' BUTTON
+									text: 'Reset',
+									titleAttr: 'Reset Map, Reset All Data',
+									action: function(e, dt, node, config) {
+										
+										zoom(latLngs);
+										d3.selectAll('.point').style("fill-opacity", function(d){
+													return "0.7";
+										});
+										
+										 $("#filingsTable .child ").hide();  
+										 
+										table.rows().every( function ( rowIdx, tableLoop, rowLoop ) {
+													this.nodes().to$().removeClass( 'selected' );
+													this.nodes().to$().removeClass( 'parent' );
+													this.nodes().to$().removeClass( 'child' );
+													this.child.hide();
+													this.nodes().to$().removeClass("shown");
+										} );
+										
+										$(".select-info").empty();                                                                                                                                       																		
+										table.search("").draw();  //remove all search/filter data
+									}
+								},
+								
+								{
+									text: 'Help',
+									titleAttr: 'Show Information',
+									action: function(e, dt, node, config) {
+												$('#helpModal').modal('show');
+											}
+								}
+								*/
+							],						
+
+							'lengthChange': false,
+							'scrollY': '460px',
+							'scrollCollapse': true,
+							'paging': false,
+							'order': [[1, "asc"]]
+					});
+					$('#loadpage').hide();
+					
+			//  THIS SHOULD JUST HILIGHT AND ZOOM ON THE MAP
+			$('#filingsTable tbody ').on( 'click', "td.parentRow" ,function () {
+				tdParentRow=$(this).parent();
+				// console.log(tdParentRow )
+				$(tdParentRow).toggleClass("selected");
+				
+				$(tdParentRow).siblings().removeClass('selected');
+
+				if ( $(tdParentRow).hasClass('selected') ) {
+						for (var i=0; i < table.rows('.selected').data().length; i++){
+							selectedRecord = table.rows('.selected').data()[i].Bin;
+							var lat = table.rows('.selected').data()[i].Latitude;
+							var lon = table.rows('.selected').data()[i].Longitude;
+							latlong = [lat,lon];
+							//console.log(selectedRecord);
+						}
+						highlightPoint(selectedRecord);
+						zoomToSelected(latlong); 
+				} else {
+						d3.selectAll('.point')
+							.style("fill-opacity", function(d){
+								return "0.7";
+							});
+						zoom(latLngs);
+				}
+			});
+		
+			
+			// add event listener for clicking circle, and searching the datatable on the right (Cathy Simon 6/4/2019)
+			$('#filingsTable').on( 'click', function (e,LocationBin) {
+					if (LocationBin) {
+						table.search( LocationBin).draw();
+					}
+			})
+			
+
+		});
+	};
+	
+var clearClick = document.getElementById('clr_btn');
+	clearClick.onclick = function(){
+		$("#dropdownCourses").val('allCourses');
+		$("#dropdownSST").val('sstAll');		
+	}
+});
 
     </script>
 </body>
