@@ -21,7 +21,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 1BM10,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 1BM10,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 1BM10,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-1BM10,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+1BM10,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 1BM10,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 1BM10,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 1BM10,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
@@ -73,13 +73,13 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 1BU70,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 1BU70,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 1BU70,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-1BU70,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+1BU70,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 1BU70,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
 1BU70,General Elective Courses,1-Hour Stairways and Ladders,Y,Self-Certified,C24
 1BU70,General Elective Courses,1-Hour Tools-Hand and Power,Y,Self-Certified,C25
 1BU70,Specialized Elective Courses,1-Hour Confined Space Entry,Y,Self-Certified,C50
 1BU70,Specialized Elective Courses,1-Hour Risk Assessment and Accident Investigation,Y,Self-Certified,C60
-1BU71,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+1BU71,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 1BU71,Prescribed Courses,8-Hour Fall Prevention,Y,Self-Certified,C35
 1BU71,General Elective Courses,1-Hour Electrocution Prevention,Y,Self-Certified,C16
 1BU71,General Elective Courses,1-Hour Fire Protection and Prevention,Y,Self-Certified,C17
@@ -93,7 +93,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 1BW36,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 1BW36,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,Self-Certified,C30
 1BW36,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-1BW36,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+1BW36,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 1BW36,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 1BW36,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 1BW36,Prescribed Courses,8-Hour Fall Prevention,Y,Self-Certified,C35
@@ -122,7 +122,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 1L40,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 1L40,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,Self-Certified,C30
 1L40,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-1L40,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+1L40,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 1L40,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 1L40,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 1L40,Prescribed Courses,8-Hour Fall Prevention,Y,Self-Certified,C35
@@ -164,7 +164,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 1M46,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 1M46,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 1M46,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-1M46,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+1M46,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 1M46,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 1M46,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 1M46,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
@@ -212,7 +212,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 1M49,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 1M49,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,Self-Certified,C30
 1M49,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-1M49,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+1M49,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 1M49,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 1M49,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 1M49,Prescribed Courses,8-Hour Fall Prevention,Y,Self-Certified,C35
@@ -262,7 +262,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 1Q25,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 1Q25,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 1Q25,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-1Q25,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+1Q25,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 1Q25,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 1Q25,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 1Q25,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
@@ -304,7 +304,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 1Q28,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 1Q28,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,Self-Certified,C30
 1Q28,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-1Q28,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+1Q28,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 1Q28,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 1Q28,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 1Q28,Prescribed Courses,8-Hour Fall Prevention,Y,Self-Certified,C35
@@ -355,7 +355,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 1Q30,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 1Q30,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 1Q30,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-1Q30,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+1Q30,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 1Q30,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 1Q30,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 1Q30,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
@@ -400,7 +400,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 1Q32,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 1Q32,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 1Q32,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-1Q32,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+1Q32,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 1Q32,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 1Q32,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 1Q32,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
@@ -432,7 +432,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 1Q37,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 1Q37,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,Curriculum Approved,C30
 1Q37,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-1Q37,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+1Q37,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 1Q37,Prescribed Courses,4-Hour Fall Prevention,Y,Curriculum Approved,C33
 1Q37,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 1Q37,Prescribed Courses,8-Hour Fall Prevention,Y,Curriculum Approved,C35
@@ -449,7 +449,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 1Q38,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 1Q38,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 1Q38,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-1Q38,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+1Q38,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 1Q38,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 1Q38,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
 1Q38,Prescribed Courses,8-Hour Site Safety Manager Refresher / Chapter 33,Y,Self-Certified,C36
@@ -478,7 +478,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 1Q42,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 1Q42,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 1Q42,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-1Q42,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+1Q42,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 1Q42,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 1Q42,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 1Q42,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
@@ -516,7 +516,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 1Q43,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 1Q43,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,Curriculum Approved,C30
 1Q43,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-1Q43,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+1Q43,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 1Q43,Prescribed Courses,4-Hour Fall Prevention,Y,Curriculum Approved,C33
 1Q43,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 1Q43,Prescribed Courses,8-Hour Fall Prevention,Y,Curriculum Approved,C35
@@ -539,7 +539,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 1Q44,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 1Q44,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,Self-Certified,C30
 1Q44,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-1Q44,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+1Q44,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 1Q44,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 1Q44,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 1Q44,Prescribed Courses,8-Hour Fall Prevention,Y,Self-Certified,C35
@@ -580,7 +580,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 1Q50,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 1Q50,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 1Q50,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-1Q50,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+1Q50,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 1Q50,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 1Q50,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 1Q50,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
@@ -629,7 +629,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 1Q76,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 1Q76,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,Self-Certified,C30
 1Q76,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-1Q76,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+1Q76,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 1Q76,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 1Q76,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 1Q76,Prescribed Courses,8-Hour Fall Prevention,Y,Self-Certified,C35
@@ -667,7 +667,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 2B57,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 2B57,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 2B57,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-2B57,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+2B57,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 2B57,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
 2B57,General Elective Courses,1-Hour Electrocution Prevention,Y,Self-Certified,C16
 2B57,General Elective Courses,1-Hour Fire Protection and Prevention,Y,Self-Certified,C17
@@ -690,7 +690,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 2L22,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 2L22,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 2L22,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-2L22,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+2L22,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 2L22,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 2L22,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
 2L22,Prescribed Courses,8-Hour Site Safety Manager Refresher / Chapter 33,Y,Self-Certified,C36
@@ -747,7 +747,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 2L66,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 2L66,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 2L66,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-2L66,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+2L66,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 2L66,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 2L66,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 2L66,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
@@ -784,7 +784,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 2M23,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 2M23,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 2M23,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-2M23,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+2M23,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 2M23,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 2M23,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
 2M23,Prescribed Courses,8-Hour Site Safety Manager Refresher / Chapter 33,Y,Self-Certified,C36
@@ -827,7 +827,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 2Q17,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 2Q17,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,Self-Certified,C30
 2Q17,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-2Q17,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+2Q17,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 2Q17,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 2Q17,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 2Q17,Prescribed Courses,8-Hour Fall Prevention,Y,Self-Certified,C35
@@ -872,7 +872,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 3B34,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 3B34,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 3B34,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-3B34,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+3B34,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 3B34,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 3B34,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 3B34,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
@@ -940,7 +940,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 3BX27,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 3BX27,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 3BX27,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-3BX27,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+3BX27,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 3BX27,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
 3BX27,General Elective Courses,1-Hour Electrocution Prevention,Y,Self-Certified,C16
 3BX27,General Elective Courses,1-Hour Fire Protection and Prevention,Y,Self-Certified,C17
@@ -1010,7 +1010,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 4B03,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 4B03,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 4B03,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-4B03,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+4B03,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 4B03,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 4B03,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 4B03,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
@@ -1057,7 +1057,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 4B47,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 4B47,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 4B47,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-4B47,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+4B47,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 4B47,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 4B47,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
 4B47,Prescribed Courses,8-Hour Site Safety Manager Refresher / Chapter 33,Y,Self-Certified,C36
@@ -1085,7 +1085,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 4B54,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 4B54,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 4B54,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-4B54,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+4B54,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 4B54,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 4B54,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
 4B54,Prescribed Courses,8-Hour Site Safety Manager Refresher / Chapter 33,Y,Self-Certified,C36
@@ -1119,7 +1119,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 4B55,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 4B55,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 4B55,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-4B55,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+4B55,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 4B55,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 4B55,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 4B55,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
@@ -1159,7 +1159,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 4B74,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 4B74,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,Self-Certified,C30
 4B74,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-4B74,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+4B74,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 4B74,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 4B74,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 4B74,Prescribed Courses,8-Hour Fall Prevention,Y,Self-Certified,C35
@@ -1210,7 +1210,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 4L01,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 4L01,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 4L01,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-4L01,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+4L01,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 4L01,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 4L01,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 4L01,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
@@ -1252,7 +1252,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 4M02,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 4M02,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,Self-Certified,C30
 4M02,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-4M02,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+4M02,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 4M02,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 4M02,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 4M02,Prescribed Courses,8-Hour Fall Prevention,Y,Self-Certified,C35
@@ -1293,7 +1293,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 4M07,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 4M07,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,Self-Certified,C30
 4M07,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-4M07,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+4M07,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 4M07,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 4M07,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 4M07,Prescribed Courses,8-Hour Fall Prevention,Y,Self-Certified,C35
@@ -1378,7 +1378,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 4M60,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 4M60,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 4M60,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-4M60,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+4M60,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 4M60,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 4M60,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 4M60,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
@@ -1427,7 +1427,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 4M63,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 4M63,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,Self-Certified,C30
 4M63,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-4M63,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+4M63,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 4M63,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 4M63,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 4M63,Prescribed Courses,8-Hour Fall Prevention,Y,Self-Certified,C35
@@ -1481,7 +1481,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 4M67,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 4M67,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 4M67,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-4M67,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+4M67,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 4M67,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 4M67,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 4M67,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
@@ -1507,7 +1507,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 4Q04,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 4Q04,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 4Q04,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-4Q04,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+4Q04,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 4Q04,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 4Q04,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 4Q04,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
@@ -1538,7 +1538,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 4Q21,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 4Q21,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 4Q21,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-4Q21,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+4Q21,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 4Q21,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 4Q21,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 4Q21,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
@@ -1569,7 +1569,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 4Q53,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 4Q53,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 4Q53,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-4Q53,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+4Q53,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 4Q53,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 4Q53,Prescribed Courses,8-Hour Fall Prevention,Y,Self-Certified,C35
 4Q53,Prescribed Courses,8-Hour Site Safety Manager Refresher / Chapter 33,Y,Self-Certified,C36
@@ -1619,7 +1619,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 4Q65,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 4Q65,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 4Q65,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-4Q65,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+4Q65,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 4Q65,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 4Q65,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 4Q65,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
@@ -1668,7 +1668,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 4Q68,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 4Q68,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,Curriculum Approved,C30
 4Q68,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-4Q68,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Curriculum Approved,C29
+4Q68,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Curriculum Approved,C29
 4Q68,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 4Q68,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 4Q68,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
@@ -1718,7 +1718,7 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 4W14,Scaffold Courses,8-Hour Suspended Scaffold Supervisor Refresher,N,Self-Certified,C46
 4W14,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 4W14,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-4W14,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+4W14,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 4W14,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 4W14,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
 4W14,Prescribed Courses,8-Hour Site Safety Manager Refresher / Chapter 33,Y,Self-Certified,C36
@@ -1752,13 +1752,13 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 4W51,Safety Courses,40-Hour Site Safety Manager,N,Self-Certified,C37
 4W51,Safety Courses,8-Hour Site Safety Manager Refresher / Chapter 33,N,Self-Certified,C40
 4W51,Safety Courses,8-Hour Site Safety Coordinator,N,Self-Certified,C39
-4W51,Safety Courses,4-Hour Supported Scaffold User & Refresher,N,Self-Certified,C38
+4W51,Safety Courses,4-Hour Supported Scaffold User & Refresher,N,Self-Certified,C44
 4W51,Scaffold Courses,32-Hour Supported Scaffold Installer & Remover,N,Self-Certified,C42
 4W51,Scaffold Courses,8-Hour Supported Scaffold Installer & Remover Refresher,N,Self-Certified,C45
 4W51,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
 4W51,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
 4W51,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
-4W51,Prescribed Courses,2-Hour ‘Tool Box’ Talks,Y,Self-Certified,C29
+4W51,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
 4W51,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
 4W51,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
 4W51,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
@@ -1792,3 +1792,96 @@ CourseProviderID,CourseTopic,Course,SST,CurriculumType,CourseID
 4W51,Specialized Elective Courses,2.5-Hour Foundations of Safety Leadership,Y,Self-Certified,C64
 5M20,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,Self-Certified,C30
 5M20,Prescribed Courses,8-Hour Fall Prevention,Y,Self-Certified,C35
+1BQ45,Specialized Elective Courses,1-Hour Asbestos/Lead Awareness,Y,Self-Certified,C48
+1BQ45,Specialized Elective Courses,1-Hour Concrete and Masonry Construction,Y,Self-Certified,C49
+1BQ45,Specialized Elective Courses,1-Hour Confined Space Entry,Y,Self-Certified,C50
+1BQ45,Specialized Elective Courses,"1-Hour Cranes, Derricks, Hoists, and Conveyors",Y,Self-Certified,C51
+1BQ45,Specialized Elective Courses,1-Hour Demolition Safety,Y,Self-Certified,C52
+1BQ45,General Elective Courses,1-Hour Electrocution Prevention,Y,Self-Certified,C16
+1BQ45,Specialized Elective Courses,1-Hour Ergonomics,Y,Self-Certified,C53
+1BQ45,Specialized Elective Courses,1-Hour Excavations,Y,Self-Certified,C54
+1BQ45,Specialized Elective Courses,1-Hour Flag Person,Y,Self-Certified,C55
+1BQ45,General Elective Courses,1-Hour Handing Heavy Materials and Proper Lifting Techniques,Y,Self-Certified,C19
+1BQ45,Specialized Elective Courses,1-Hour Health and Safety Programs in Construction,Y,Self-Certified,C56
+1BQ45,General Elective Courses,1-Hour Hoisting and Rigging,Y,Self-Certified,C20
+1BQ45,Specialized Elective Courses,1-Hour Job Hazard Analysis,Y,Self-Certified,C57
+1BQ45,General Elective Courses,"1-Hour Materials Handling, Storage, Use, and Disposal",Y,Self-Certified,C21
+1BQ45,Specialized Elective Courses,"1-Hour Motor Vehicles, Mechanized Equipment and Marine Operations; Rollover Protective Structures and Overhead Protection; and Signs, Signals and Barricades",Y,Self-Certified,C58
+1BQ45,Specialized Elective Courses,1-Hour Personnel Lifts/Aerial Lifts/Scissor Lifts Safety,Y,Self-Certified,C59
+1BQ45,General Elective Courses,1-Hour Protection from Sun Exposure,Y,Self-Certified,C22
+1BQ45,General Elective Courses,1-Hour Repetitive Motion Injuries,Y,Self-Certified,C23
+1BQ45,Specialized Elective Courses,1-Hour Risk Assessment and Accident Investigation,Y,Self-Certified,C60
+1BQ45,General Elective Courses,1-Hour Stairways and Ladders,Y,Self-Certified,C24
+1BQ45,Specialized Elective Courses,1-Hour Steel Erection,Y,Self-Certified,C62
+1BQ45,General Elective Courses,1-Hour Tools-Hand and Power,Y,Self-Certified,C25
+1BQ45,Specialized Elective Courses,1-Hour Welding and Cutting,Y,Self-Certified,C63
+1BQ45,Specialized Elective Courses,2.5-Hour Foundations of Safety Leadership,Y,Self-Certified,C64
+1BQ45,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
+1BQ45,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,Self-Certified,C30
+1BQ45,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
+1BQ45,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
+1BQ45,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
+1BQ45,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
+1BQ45,Prescribed Courses,8-Hour Fall Prevention,Y,Self-Certified,C35
+1BQ45,Prescribed Courses,8-Hour Site Safety Manager Refresher / Chapter 33,Y,Self-Certified,C36
+4T75,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,Self-Certified,C30
+4T75,Prescribed Courses,4-Hour Fall Prevention,Y,Self-Certified,C33
+4T75,Prescribed Courses,4-Hour Supported Scaffold User & Refresher,Y,Self-Certified,C34
+1BU18,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,Self-Certified,C30
+1BU18,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
+1BU18,Prescribed Courses,8-Hour Fall Prevention,Y,Self-Certified,C35
+1BU18,Specialized Elective Courses,1-Hour Personnel Lifts/Aerial Lifts/Scissor Lifts Safety,Y,Self-Certified,C59
+1U35,Prescribed Courses,2-Hour Site Safety Plan (SSP),Y,Self-Certified,C32
+1U35,Prescribed Courses,2-Hour Drug and Alcohol Awareness,Y,DOB Approved Curriculum,C30
+1U35,Prescribed Courses,2-Hour Pre-Task Meeting,Y,Self-Certified,C31
+1U35,Prescribed Courses,2-Hour â€˜Tool Boxâ€™ Talks,Y,Self-Certified,C29
+1U35,Prescribed Courses,8-Hour Fall Prevention,Y,DOB Approved Curriculum,C35
+1U35,General Elective Courses,1-Hour Electrocution Prevention,Y,Self-Certified,C16
+1U35,General Elective Courses,1-Hour Fire Protection and Prevention,Y,Self-Certified,C17
+1U35,General Elective Courses,1-Hour Handing Heavy Materials and Proper Lifting Techniques,Y,Self-Certified,C19
+1U35,General Elective Courses,1-Hour Hoisting and Rigging,Y,Self-Certified,C20
+1U35,General Elective Courses,"1-Hour Materials Handling, Storage, Use, and Disposal",Y,Self-Certified,C21
+1U35,General Elective Courses,1-Hour Protection from Sun Exposure,Y,Self-Certified,C22
+1U35,General Elective Courses,1-Hour Repetitive Motion Injuries,Y,Self-Certified,C23
+1U35,General Elective Courses,1-Hour Stairways and Ladders,Y,Self-Certified,C24
+1U35,General Elective Courses,1-Hour Tools-Hand and Power,Y,Self-Certified,C25
+1U35,Specialized Elective Courses,1-Hour Asbestos/Lead Awareness,Y,Self-Certified,C48
+1U35,Specialized Elective Courses,1-Hour Confined Space Entry,Y,Self-Certified,C50
+1U35,Specialized Elective Courses,1-Hour Concrete and Masonry Construction,Y,Self-Certified,C49
+1U35,Specialized Elective Courses,"1-Hour Cranes, Derricks, Hoists, and Conveyors",Y,Self-Certified,C51
+1U35,Specialized Elective Courses,1-Hour Demolition Safety,Y,Self-Certified,C52
+1U35,Specialized Elective Courses,1-Hour Excavations,Y,Self-Certified,C54
+1U35,Specialized Elective Courses,1-Hour Flag Person,Y,Self-Certified,C55
+1U35,Specialized Elective Courses,1-Hour Personnel Lifts/Aerial Lifts/Scissor Lifts Safety,Y,Self-Certified,C59
+1U35,Specialized Elective Courses,1-Hour Welding and Cutting,Y,Self-Certified,C63
+1U35,Specialized Elective Courses,1-Hour Health and Safety Programs in Construction,Y,Self-Certified,C56
+1BU18,Concrete Courses,30-Hour Concrete Safety Manager,N,Self-Certified,C01
+1BU18,Concrete Courses,8-Hour Concrete Safety Manager Refresher,N,Self-Certified,C02
+1BU18,Cranes & Derrick Courses,4-Hour Mast Climber User & Operator,N,Self-Certified,C09
+1BU18,Cranes & Derrick Courses,16-Hour Rigging Worker,N,Self-Certified,C04
+1BU18,Cranes & Derrick Courses,8-Hour Rigging Worker Refresher,N,Self-Certified,C13
+1BU18,Cranes & Derrick Courses,32-Hour Rigging Supervisor,N,Self-Certified,C08
+1BU18,Cranes & Derrick Courses,16-Hour Rigger Supervisor Refresher,N,Self-Certified,C03
+1BU18,Cranes & Derrick Courses,30-Hour Master Rigger,N,Self-Certified,C06
+1BU18,Cranes & Derrick Courses,8-Hour Master Rigger Renewal,N,Self-Certified,C12
+1BU18,Cranes & Derrick Courses,30-Hour Climber/Tower Crane Rigger,N,Self-Certified,C05
+1BU18,Cranes & Derrick Courses,8-Hour Climber/Tower Crane Rigger Renewal,N,Self-Certified,C10
+1BU18,Cranes & Derrick Courses,30-Hour Special Rigger,N,Self-Certified,C07
+1BU18,Cranes & Derrick Courses,8-Hour Special Rigger Renewal,N,Self-Certified,C14
+1BU18,Electrical Courses,8-Hour Master & Special Electrician Renewal,N,Self-Certified,C15
+1BU18,Plumbing Courses,7-Hour Master Plumber & Master Suppression Piping Contractor Renewal,N,Self-Certified,C27
+1BU18,Safety Courses,40-Hour Site Safety Manager,N,Self-Certified,C37
+1BU18,Safety Courses,8-Hour Site Safety Coordinator,N,Self-Certified,C39
+1BU18,Scaffold Courses,4-Hour Supported Scaffold User & Refresher,N,Self-Certified,C44
+1BU18,Scaffold Courses,32-Hour Supported Scaffold Installer & Remover,N,Self-Certified,C42
+1BU18,Scaffold Courses,8-Hour Supported Scaffold Installer & Remover Refresher,N,Self-Certified,C45
+1BU18,Scaffold Courses,16-Hour Suspended Scaffold User,N,Self-Certified,C41
+1BU18,Scaffold Courses,8-Hour Suspended Scaffold User Refresher,N,Self-Certified,C47
+1BU18,Scaffold Courses,32-Hour Suspended Scaffold Supervisor,N,Self-Certified,C43
+1BU18,Scaffold Courses,8-Hour Suspended Scaffold Supervisor Refresher,N,Self-Certified,C46
+1U35,Cranes & Derrick Courses,16-Hour Rigging Worker,N,Self-Certified,C04
+1U35,Cranes & Derrick Courses,8-Hour Rigging Worker Refresher,N,Self-Certified,C13
+1U35,Scaffold Courses,4-Hour Supported Scaffold User & Refresher,N,Self-Certified,C44
+1U35,Scaffold Courses,32-Hour Supported Scaffold Installer & Remover,N,Self-Certified,C42
+1U35,Scaffold Courses,8-Hour Supported Scaffold Installer & Remover Refresher,N,Self-Certified,C45
+6T73,Plumbing Courses,7-Hour Periodic Gas Piping Inspector Qualification,N,Self-Certified,C28
