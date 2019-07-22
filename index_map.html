@@ -1,20 +1,16 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
     <meta charset=utf-8 />
     <title>Course Providers</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <link href='https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css' rel='stylesheet' type='text/css'/>
-	<!-- link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /-->
-    <!-- link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css" -->	
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/opencagedata/leaflet-opencage-search@d4cbd36122efc8d17152b4177ed0e12165305441/dist/css/L.Control.OpenCageData.Search.min.css" />	
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.12/r-2.1.0/se-1.2.0/datatables.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/keen-dashboards.css" />
 	<link rel="stylesheet" type='text/css' href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type='text/css' href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 	<link rel="stylesheet" type='text/css' href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">	
-
-	
     <style>
 			html { 
 				height: 100% 
@@ -51,6 +47,10 @@
 				fill: #f00000;
 				fill-opacity: .7;
 			}
+			.pointSBS{
+				fill: #0bd7f4;
+				fill-opacity: .7;	
+			}			
 			#map-container{
 				ZZZheight: 810px;    
 				height: 92vh;
@@ -82,7 +82,7 @@
 			}
 			
 			#dropdownCourses {
-			  width: 500px;
+			  width: 550px;
 			  max-width: 100%;
 			}
 			.filterBtn {
@@ -183,17 +183,62 @@
 			  font-family: Oswald,sans-serif;
 			  color: #d96b27;
 			}
+			.notFoundData {
+				color: red;
+				font-weight: bold;
+				position: relative;
+			}
+			.pagefooter a {
+					text-decoration: none;
+					color: red;
+					font-weight: bold; 
+					margin:auto 5px
+			}
+			.ui {
+				top: 10px;
+				left: 50px;
+				padding: 8px;
+				position: absolute;
+				background-color: #fff;
+				border: 2px solid #707070;
+				border-radius: 7px;
+				width: 250px;
+			}
+
+			.point_CP {
+			  position: relative;
+			  top: 3px;
+			  height: 15px;
+			  width: 15px;
+			  background-color: #f00000;
+			  border-radius: 50%;
+			  display: inline-block;
+			}
+
+			.point_SBS {
+			  position: relative;
+			  top: 3px;
+			  height: 15px;
+			  width: 15px;
+			  background-color: #0bd7f4;
+			  border-radius: 50%;
+			  display: inline-block;
+			}
+
+			.legend_label{
+				padding-left: 10px;
+				font-size: 14px;
+				display: inline-block;
+			}			
     </style>
 </head>
 
 <body>
-<div class="row" style="padding-top:5px; padding-bottom:5px;">
-	<div class="col-md-9">	
+<div class="row" style="padding-top:5px; padding-bottom:5px;">  
+		<div class="col-md-12">
 			<form id="searchCourse" class="" style="padding-left:10px;font-size:1.3em;"> 
-			<!-- <form id="searchCourse" class="" style="float:right;font-size:1.3em;">   -->
-			<span id="filterTxt">FILTER COURSE PROVIDERS</span>
+			<span id="filterTxt">FILTER</span>
 						<span style="padding-right:20px"></span>
-						
 						<label for="" style="color:#666666;">Courses: </label>
 								<select id="dropdownCourses" >
 									<option value='allCourses' selected>All Courses</option>
@@ -280,18 +325,32 @@
 									<option value="sstYes">Only SST</option>	
 									<option value="sstNo">Non-SST</option>
 								</select>
-						
 						<span style="padding-right:20px"></span>
-								<button class="filterBtn" id="fltr_btn">APPLY FILTER</button>
-								<button class="clearBtn" id="clr_btn">CLEAR FILTER</button>
-			</form>
-			
+						<label for="" style="color:#666666;">Language: </label>
+								<select id="dropdownLanguages" >
+								<option value="all">All</option>
+										<!-- dynamic -->
+								</select>
+						<span style="padding-right:20px"></span>  
+						<button class="filterBtn" id="fltr_btn">APPLY FILTER</button>
+						<button class="clearBtn" id="clr_btn">CLEAR FILTER</button>
+			</form>	
 	</div>
 </div>
+
+
+
 <div class="row" >
 	<div class="col-md-9">
 		<div class="chart-stage" id="map-container" >
-			<div id="map"></div>
+			<div id="map">
+				<div id="ui-container" class="ui" style="z-index: 401">				
+					<h4>Legend</h4>						  
+						<span class="point_CP"></span><span class="legend_label">Course Providers</span>							
+					<br/>
+						<span class="point_SBS"></span><span class="legend_label">SBS Worker Information Centers</span>	
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="col-md-3" >
@@ -317,28 +376,71 @@
 	</div>
 </div>
 
-
+<div class="row pagefooter" >
+		<div class="col-sm-11">
+			<h6><a target="_blank" href="https://www1.nyc.gov/site/buildings/about/metrics-reports.page">Built by DOB Analytics Dev Squad</a></h6>
+		</div>
+		<div class="col-sm-1">
+			<h6 class="pull-right"><a target="_blank" href="https://www.surveymonkey.com/r/W35368J">Feedback </a></h6>
+		</div>
+</div>
 
 <div class="modal" id="helpModal" tabindex="-1" role="dialog" data-keyboard="false">  <!--  help modal     -->
   <div class="modal-dialog modal-md" role="document">
     <div class="modal-content">
-	
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			<div class="row">
 				<div class="col-md-3"><img src="https://www1.nyc.gov/assets/buildings/images/content/header/logo.png" style="margin: 0px 20px;"></div>
 				<div class="col-md-9">
-				
 						<h2 style="color:black"> Course Providers</h2>
 				</div>
 			</div>
-		</div>	
+		</div>		
 		<div class="modal-body modal-md">
-	    <ul class="helpList">
+		<div class="notFoundText" >
+			<h3> No results found for:</h3>
+				<div class="row">
+					<div class="col-sm-3">
+						<h4 class="">Category:</h4>
+					</div>	
+					<div>
+						<h4 class="spanCategory notFoundData"></h4>
+					</div>	
+				</div>
+
+				<div class="row">
+					<div class="col-sm-3">
+						<h4 class="">Course:</h4>
+					</div>	
+					<div>
+						<h4 class="spanCourse notFoundData"></h4>
+					</div>	
+				</div>
+
+				<div class="row">
+					<div class="col-sm-3">
+						<h4 class="">SST Status:</h4>
+					</div>	
+					<div>
+						<h4 class="spanSST notFoundData"></h4>
+					</div>	
+				</div>
+				<div class="row">
+					<div class="col-sm-3">
+						<h4 class="">Language:</h4>
+					</div>	
+					<div>
+						<h4 class="spanLanguage notFoundData"></h4>
+					</div>	
+				</div>
+			<h3>Please modify your search criteria.<br>Note: Map and table have been reset.</h3>
+		</div>
+	    <ul class="helpList" >
 			<li>Filtering</li>
 				<ol>
 					<li>Select any point on Map to filter and select the corresponding table row(s)</li>
-					<li>Select the X in the search box to clear filtered data</li>
+					<li>Select the X in the search box to clear filtered table data</li>
 					<li>Select <span class="glyphicon glyphicon-search" aria-hidden="true"></span> to search for address/point of interest</li>
 				</ol>
 			<li>Getting Details</li>
@@ -354,50 +456,20 @@
     </div>
   </div>
 </div>
-
-
-
-	<!--	ESRI SUPPORT FOR ADDRESS SEARCH
-	<script src="https://unpkg.com/leaflet/dist/leaflet-src.js"></script>
-    <script src="https://unpkg.com/esri-leaflet"></script >
-	<script src="https://unpkg.com/esri-leaflet-geocoder"></script 
-	
-	-->
-	
-	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
-
 	<!-- address search -->
 	<script src="https://cdn.jsdelivr.net/gh/opencagedata/leaflet-opencage-search@d4cbd36122efc8d17152b4177ed0e12165305441/dist/js/L.Control.OpenCageSearch.min.js"></script>
-
-
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.9/d3.min.js"></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	<script src="Leaflet.D3SvgOverlay-master/L.D3SvgOverlay.min.js"></script>	
-
-
-
-
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/v/dt/dt-1.10.12/r-2.1.0/se-1.2.0/datatables.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
-
-
-	
 <script>	
 $(document).ready(function(){
-	
-	const modalBody = document.querySelector(".modal-body");
-	const helpText='<ul class="helpList"><li>Filtering</li><ol><li>Select any point on Map to filter and select the corresponding table row(s)</li><li>Select the X in the search box to clear filtered data</li><li>Select <span class="glyphicon glyphicon-search" aria-hidden="true"></span> to search for address/point of interest</li></ol><li>Getting Details</li><ol><li>Select any point on Map to display an information popup</li><li>Select the <img src="https://datatables.net/examples/resources/details_open.png"></img> icon in the table to show more details</li><li>Select the <img src="https://datatables.net/examples/resources/details_close.png"></img> icon in the table to close details</li></ol><li><button disabled >Export</button> button downloads all data from original query results</li><li><button disabled >Reset</button> button restores table and map to original state</li></ul>'
-	// $('#helpModal').on('hidden.bs.modal', function () {	$(modalBody).html(helpText); });	
-	$('#helpModal').on('hidden.bs.modal',() => {$(modalBody).html(helpText)});	
-	
-	
-	
+	//   $('#helpModal').on('hidden.bs.modal',() => {    $(".helpList").show()    }   );	
 	var map = L.map('map').setView([40.791384, -73.883770], 10);
-	
-	
 	/*   NEW address search support   */
 	var options = {
 					key: '9277c3027dc546989ea28d048ffa9ee7',
@@ -405,33 +477,8 @@ $(document).ready(function(){
 					proximity: '40.791384, -73.883770'
 	};
 	var control = L.Control.openCageSearch(options).addTo(map);
-
-
-
-	
 	L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png',
 	     {attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
-
-	/*   Support for esri address search, causes issues with zoom and gridlines
-			// create the geocoding control and add it to the map
-			var searchControl = L.esri.Geocoding.geosearch({
-			  useMapBounds:false,
-			  providers: [ L.esri.Geocoding.arcgisOnlineProvider() ]
-			}).addTo(map);
-
-			// create an empty layer group to store the results and add it to the map
-			var results = L.layerGroup().addTo(map);
-
-			// listen for the results event and add every result to the map
-			searchControl.on("results", function(data) {
-			   results.clearLayers();
-				for (var i = data.results.length - 1; i >= 0; i--) {
-					results.addLayer(L.marker(data.results[i].latlng));
-				}
-			});
-	*/
-
-
 
 	var tooltip = d3.select('body').append('div')
 		.on('mouseover', function(d, i){
@@ -445,12 +492,15 @@ $(document).ready(function(){
 	var width = $("#map").width(),
 		height = $("#map").height(),
 		points = [],
+				    	pointsSBS = [],
 		table_map = [],
 		filteredData,	
 		latLngs = [],
+	    	latLngsSBS = [],		
 		zoomSelect = 15,
 		selectedCourse="allCourses",
 		selectedSST="sstAll",
+		selectedLanguage="all",
 		selectedRecord,
 		selectedSST_cpID;
 		
@@ -465,8 +515,6 @@ $(document).ready(function(){
 		})
 
 		.on('click', function(d){
-		
-		
 			$('#cpTable').trigger( "click",d.id   ); 
 		
 			if(d3.select(this).style("fill-opacity") != 0){
@@ -509,6 +557,68 @@ $(document).ready(function(){
 
 	});
 
+	var pointsOverlaySBS = L.d3SvgOverlay(function(sel,proj){
+	var pointsUpdSBS = sel.selectAll('circle').data(pointsSBS);	
+	pointsUpdSBS.enter()
+		.append('circle')
+		.attr('cx',function(d){return proj.latLngToLayerPoint(d.latLng).x;})
+		.attr('cy',function(d){return proj.latLngToLayerPoint(d.latLng).y;})
+		.attr('class', function(d){
+			return "pointSBS";
+		})
+
+		.on('click', function(d){
+			if(d3.select(this).style("fill-opacity") != 0){
+				tooltip.style("visibility", "visible");
+				tooltip.html(
+					'NAME: ' +d.name + '</br>' +								
+					'ADDRESS: ' +d.address + '</br>' +					
+					'PHONE: ' +d.phone + '</br>' +	
+					'LANGUAGE: ' +d.language						
+				)
+				if (d3.event.pageX > (width - 200)) {
+				   tooltip.style("left", (d3.event.pageX - 350) + "px");
+				} else {
+				   tooltip.style("left", (d3.event.pageX + 20) + "px")
+						.style("top", (d3.event.pageY -30) + "px");
+				}
+				if (d3.event.pageY > (height - 150)) {
+				   tooltip.style("top", (d3.event.pageY -100) + "px");
+				} else {
+				   tooltip.style("top", (d3.event.pageY -30) + "px");
+				}
+			}
+		})
+		.on("mouseover", function(d, i){
+			if(d3.select(this).style("fill-opacity") != 0){
+				tooltip.transition().duration(0); 
+				$(this).attr("style", "cursor: pointer; fill: #eef442; fill-opacity: 1;");
+			}
+		})
+		.on("mouseout", function(d, i){	
+			if(d3.select(this).style("fill-opacity") != 0){
+				$(this).attr("style", "stroke-width: 0px; fill-opacity: .7;");
+				return tooltip.transition().delay(500).style("visibility", "hidden"); 
+			}
+		});
+		pointsUpdSBS.attr('r', 6 / proj.scale);
+
+	});
+	d3.csv("data/SBS_WorkersInfoCenters.csv",function(data){
+				pointsSBS = data.map(function(d){
+				d.latLng = [+d.Lat,+d.Long];
+				d.name = [d.Name];
+				d.address = [d.Address];
+				d.phone = [d.Phone];
+				d.language = [d.Language];
+			return d;
+				
+			});
+		pointsOverlaySBS.addTo(map);
+		latLngsSBS = data.map(function(d){				
+			return d.latLng;
+		});
+	});
 	function loadTable(data){
 			$(function(){
 				  var table = $('#cpTable').DataTable({
@@ -549,11 +659,7 @@ $(document).ready(function(){
 							
 								// BASIC EXPORT (minified)
 								/*{extend: 'csvHtml5',text: 'Export Data',customize: function(csv){return csv;}},*/
-								
-								
 								{ // EXPORT ALL DATA, DISREGARD ANY SEARCH THAT IS APPLIED
-								
-								
 									extend: 'csv',
 									titleAttr: 'Download all data to CSV',
 									filename: "CourseProvidersData",
@@ -566,10 +672,7 @@ $(document).ready(function(){
 									columns: 'th:not(:first-child)'  //we don't need the first column (ie 0)
 									}
 								}
-								
 								,
-								
-								
 								{ 
 									text: 'Reset',
 									titleAttr: 'Reset Map, Reset All Data',
@@ -594,7 +697,7 @@ $(document).ready(function(){
 										} );
 										
 										$(".select-info").empty();          
-										$('#clr_btn').trigger( "click"  ); //affect clear button
+										$('#clr_btn').trigger( "click"  ); 
 
 										table.search("").draw();  
 									}
@@ -604,6 +707,8 @@ $(document).ready(function(){
 									text: 'Help',
 									titleAttr: 'Show Information',
 									action: function(e, dt, node, config) {
+												$('.helpList').show();	
+												$('.notFoundText').hide();													
 												$('#helpModal').modal('show');
 											}
 								}
@@ -642,25 +747,33 @@ $(document).ready(function(){
 						zoom(latLngs);
 				}
 			});
-		
-			
-
 			$('#cpTable').on( 'click', function (e,vProviderID) {
 					if (vProviderID) {
 						table.search( vProviderID).draw();
 					}
 			})
 		});
-	};  //end of loadTable()
+	};  //end loadTable()
 
 	function refreshTable(qualifyingCourseProviderIDs) {
-			searchVals = qualifyingCourseProviderIDs.join("|");
+			searchVals = qualifyingCourseProviderIDs
+						.map(  (item)=> item.id  )
+						.join("|");
 			$('#cpTable').DataTable().column(2).search(searchVals,true,false);
 			$('#cpTable').DataTable().draw();
 	}
-
-	d3.csv("data/CourseProviders_Master.csv",function(data){
-				points = data.map(function(d){
+	function isLang(allColNames) {
+			allColNames.forEach( function(element) {
+				if (element.indexOf("Lang_") >= 0) {
+					languages.push(element.replace("Lang_", ""));
+					$("#dropdownLanguages").append('<option value="' + element.replace("Lang_", "") + '">'+ element.replace("Lang_", "") + '</option>' );
+				}
+		})
+	}
+	var languages=[];
+	d3.csv("data/CourseProviders_Master.csv",function(data ){
+				points = data.map(function(d,i){
+				i==0?isLang(Object.keys(d3.values(data)[0])): null; //build language dropdown and languages
 				d.latLng = [+d.Lat,+d.Long];
 				d.id = d["Provider Number"];
 				d.company = [d.Company];
@@ -669,17 +782,17 @@ $(document).ready(function(){
 				d.fax = d["Fax Number"];
 				d.web = d["Web Page"];
 				d.sstAprvd = d["SST Approved"];
+				d.offeredLanguages=
+						languages.map(function(languageColumn){ if ( d["Lang_"+languageColumn] == 1){return languageColumn}}).filter(Boolean);
 			return d;
-				
-			});
+					
+			});  //end points declaration			
 		pointsOverlay.addTo(map);
 		latLngs = data.map(function(d){				
 			return d.latLng;
 		});
 		
-		
 		loadTable(data);
-
 		d3.csv("data/CourseProviders_Courses.csv",function(course_data){
 			course_data.forEach(function(d){
 				d.cpID = [d.CourseProviderID];
@@ -698,23 +811,28 @@ $(document).ready(function(){
 			d3.select("#dropdownSST").on('change', function(){
 				selectedSST = d3.select(this).property('value');
 			});
+
+			d3.select("#dropdownLanguages").on('change', function(){
+				selectedLanguage = d3.select(this).property('value');
+			});
 			
 			var filterClick = document.getElementById('fltr_btn');
 				filterClick.onclick = function(){
 					event.preventDefault();
 					selectedCourse = $( "#dropdownCourses option:selected" ).val();
 					selectedSST = $( "#dropdownSST option:selected" ).val();
-					filterQry(selectedCourse, selectedSST);
+					selectedLanguage = $( "#dropdownLanguages option:selected" ).val();
+					$('#cpTable').DataTable().search( '' ).column(2).search( '' ).draw();
+					filterQry(selectedCourse, selectedSST, selectedLanguage);
 				}
-				
-
-
 			$('#clr_btn').click( function(e){
 				e.preventDefault();
 				$("#dropdownCourses").val('allCourses');
 				$("#dropdownSST").val('sstAll');
+				$("#dropdownLanguages").val('all');
 				selectedCourse = "allCourses";
 				selectedSST = "sstAll";
+				selectedLanguage = "all";
 				latLngs = data.map(d => d.latLng);
 				points=data.map(d=>d);
 				map.removeLayer(pointsOverlay);
@@ -722,18 +840,19 @@ $(document).ready(function(){
 				map.setView([40.791384, -73.883770], 10);
 				$('#cpTable').DataTable().search( '' ).column(2).search( '' ).draw(); 
 			});
-			
 
-			function filterQry(selectedCourse, selectedSST){
+			function filterQry(selectedCourse, selectedSST, selectedLanguage){
 				selectedCourse_cpID = course_data.filter(function(d){
 									return ((d.cID == selectedCourse^selectedCourse=="allCourses") && ((selectedSST=="sstYes" && d.sst=="Y"?1:0) + 
 												(selectedSST=="sstNo" && d.sst=="N"?1:0)+(selectedSST=="sstAll" ? 1:0)==1));});				
-				var qualifyingCourseProviderIDs = [];
-				for(var k in selectedCourse_cpID) {qualifyingCourseProviderIDs.push(selectedCourse_cpID[k].CourseProviderID)}
+				var qualifyingCourseProviderIDs = selectedCourse_cpID
+						.map( (value) => value.CourseProviderID)
+						.filter((value,index,selectedCourse_cpID)=> selectedCourse_cpID.indexOf(value) == index);
 				filteredData = data.filter(function(d,i){
-							return qualifyingCourseProviderIDs.indexOf(d.id) >= 0;
-				})
-
+							return 	qualifyingCourseProviderIDs.indexOf(d.id) >= 0 
+									&&  (selectedLanguage=="all" || d.offeredLanguages.includes(selectedLanguage))
+					})
+				qualifyingCourseProviderIDs = qualifyingCourseProviderIDs.map( a=>a.CourseProviderID  )
 				latLngs = filteredData.map(function(d){				
 					return d.latLng;
 				});
@@ -743,17 +862,16 @@ $(document).ready(function(){
 				map.removeLayer(pointsOverlay);
 				pointsOverlay.addTo(map);	
 				zoom(latLngs);
-
-				refreshTable(qualifyingCourseProviderIDs);	//redraw the table
-				if (selectedSST=="sstAll" && selectedCourse=="allCourses") {
+				//refreshTable(qualifyingCourseProviderIDs);	//redraw the table
+				refreshTable(filteredData);
+				if (selectedSST=="sstAll" && selectedCourse=="allCourses" && selectedLanguage=="all") {
 					$('#cpTable').DataTable().search('').draw();  //clear any search results
 					map.setView([40.791384, -73.883770], 10);
 				}
 			}
 		});	
 		
-	});  //end of d3 master...csv loadTable
-	
+	});  //end d3 master...csv loadTable
 	
 	function highlightPoint(layerID){   //this filters the data on the map , so that only one point is shown
 		d3.selectAll(".point")
@@ -772,19 +890,21 @@ $(document).ready(function(){
 	
 	function zoom(latLngs){
 		if (latLngs === undefined || latLngs == 0){
-				dispModalMsg="No results found for " + '"'+$( "#dropdownCourses option:selected" ).text() + '"'+ " courses that are" + 
-				(selectedSST == "sstNo" ? " not ":" ") + "SST-approved.";
-				$(modalBody).html("<h3>"+dispModalMsg+"<h3><h3>Please try different search criteria.</h3>");
-				$('#helpModal').modal('show');
-				$('#clr_btn').trigger("click"); 
-		}
+			var category = $("#dropdownCourses option:selected").prevAll(".courseHeading").html()
+			$(".spanCourse").empty().append($("#dropdownCourses option:selected").text());
+			$(".spanSST").empty().append($("#dropdownSST option:selected").text());
+			$(".spanLanguage").empty().append($("#dropdownLanguages option:selected").text());
+			$(".spanCategory").empty().append(category);
+			$('.helpList').hide();	
+			$('.notFoundText').show();	
+			$('#helpModal').modal('show');
+			$('#clr_btn').trigger("click"); 
+			}
 		else
-		{
-	
+			{
 			polyline = L.polyline(latLngs,{opacity:0}).addTo(map);
 			map.fitBounds(polyline.getBounds());				
 			map.removeLayer(polyline);
-			
 			//map.setView([40.791384, -73.883770], 10);	
 			map.setView([40.791384, -73.883770], 10, {
 			  "animate": false,
@@ -794,14 +914,10 @@ $(document).ready(function(){
 			});
 		}
 	};
-
-
 	map.on('resize', function(){ 
 		map.invalidateSize();	
 	}); 
-
 });
-
 </script>
 </body>
 </html>
