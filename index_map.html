@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/opencagedata/leaflet-opencage-search@d4cbd36122efc8d17152b4177ed0e12165305441/dist/css/L.Control.OpenCageData.Search.min.css" />	
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.12/r-2.1.0/se-1.2.0/datatables.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/keen-dashboards.css" />
+	  <!--  link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"  -->
 	<link rel="stylesheet" type='text/css' href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type='text/css' href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 	<link rel="stylesheet" type='text/css' href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">	
@@ -52,7 +53,6 @@
 				fill-opacity: .7;	
 			}			
 			#map-container{
-				ZZZheight: 810px;    
 				height: 92vh;
 				width: 100%;
 				border: 3px solid black;
@@ -60,7 +60,6 @@
 				display: block;
 			}
 			#table-container{
-				ZZZheight: 810px;
 				height: 92vh;
 				width: 100%;
 				border: 3px solid black;
@@ -85,37 +84,10 @@
 			  width: 550px;
 			  max-width: 100%;
 			}
-			.filterBtn {
-				padding: 2px 3px 2px 3px;
-				background: #46A6DD;
-				color: white;
-				font-size: 14px;
-				<!-- font-weight: bold; -->
-				display: inline-block;
-				<!-- float: right; -->
-				<!-- margin-left: 20px; -->
-				<!-- position: absolute; -->
-			}
-			.filterBtn:hover {
-				background: #002878;
-			}
-			.clearBtn {
-				padding: 2px 3px 2px 3px;
-				background: #46A6DD;
-				color: white;
-				font-size: 14px;
-				<!-- font-weight: bold; -->
-				display: inline-block;
-				<!-- float: right; -->
-				<!-- margin-left: 20px; -->
-				<!-- position: absolute; -->
-			}
-			.clearBtn:hover {
-				background: #002878;
-			}
+			
 			#filterTxt {
 				font-size: 18px;
-				font-weight: bold;
+				font-weight: 800;
 				color: #46A6DD;
 			}
 			
@@ -181,7 +153,7 @@
 			.modal-header {
 			  background: #ececec;
 			  font-family: Oswald,sans-serif;
-			  color: #d96b27;
+			  color: #000;
 			}
 			.notFoundData {
 				color: red;
@@ -229,17 +201,38 @@
 				padding-left: 10px;
 				font-size: 14px;
 				display: inline-block;
-			}			
+			}
+			#searchCourse {
+				padding-left:8px;
+				font-size:1.3em;
+			}
+
+			#searchCourse span {
+				padding-right: 17px;
+			}
+			#searchCourse label {
+				font-weight: 700;
+				color:#666666;
+			}
+			#searchCourse button {
+				padding: 2px 3px 2px 3px;
+				background: #46A6DD;
+				color: white;
+				font-size: 14px;
+				display: inline-block;
+			}
+			#searchCourse button:hover {
+				background: #002878;
+			}
     </style>
 </head>
 
 <body>
 <div class="row" style="padding-top:5px; padding-bottom:5px;">  
 		<div class="col-md-12">
-			<form id="searchCourse" class="" style="padding-left:10px;font-size:1.3em;"> 
+			<form id="searchCourse" class=""> 
 			<span id="filterTxt">FILTER</span>
-						<span style="padding-right:20px"></span>
-						<label for="" style="color:#666666;">Courses: </label>
+						<label for="">Course:</label>
 								<select id="dropdownCourses" >
 									<option value='allCourses' selected>All Courses</option>
 									<option class='courseHeading' value='' disabled>CONCRETE COURSES</option>
@@ -318,22 +311,22 @@
 									<option value='C65'>2-Hour Drug and Alcohol Awareness</option>
 									<option value='C66'>8-Hour Fall Prevention</option>
 								</select>
-								<span style="padding-right:20px"></span>
-						<label for="" style="color:#666666;">SST Status: </label>
+								<span></span>
+						<label for="">SST Status:</label>
 								<select id="dropdownSST" >
 									<option value="sstAll" selected>Any</option>
 									<option value="sstYes">Only SST</option>	
 									<option value="sstNo">Non-SST</option>
 								</select>
-						<span style="padding-right:20px"></span>
-						<label for="" style="color:#666666;">Language: </label>
+						<span></span>
+						<label for="">Language: </label>
 								<select id="dropdownLanguages" >
 								<option value="all">All</option>
 										<!-- dynamic -->
 								</select>
-						<span style="padding-right:20px"></span>  
-						<button class="filterBtn" id="fltr_btn">APPLY FILTER</button>
-						<button class="clearBtn" id="clr_btn">CLEAR FILTER</button>
+						<span></span>  
+						<button class="filterBtn" id="fltr_btn"> APPLY </button>
+						<button class="clearBtn" id="clr_btn"> CLEAR </button>
 			</form>	
 	</div>
 </div>
@@ -393,7 +386,7 @@
 			<div class="row">
 				<div class="col-md-3"><img src="https://www1.nyc.gov/assets/buildings/images/content/header/logo.png" style="margin: 0px 20px;"></div>
 				<div class="col-md-9">
-						<h2 style="color:black"> Course Providers</h2>
+						<h2> Course Providers</h2>
 				</div>
 			</div>
 		</div>		
@@ -461,6 +454,7 @@
 	<script src="https://cdn.jsdelivr.net/gh/opencagedata/leaflet-opencage-search@d4cbd36122efc8d17152b4177ed0e12165305441/dist/js/L.Control.OpenCageSearch.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.9/d3.min.js"></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <!--  script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script -->
 	<script src="Leaflet.D3SvgOverlay-master/L.D3SvgOverlay.min.js"></script>	
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/v/dt/dt-1.10.12/r-2.1.0/se-1.2.0/datatables.min.js"></script>
@@ -897,6 +891,7 @@ $(document).ready(function(){
 			$(".spanCategory").empty().append(category);
 			$('.helpList').hide();	
 			$('.notFoundText').show();	
+			//  $('#helpModal').modal('show').draggable({ handle: ".modal-header"});  //user can drag 
 			$('#helpModal').modal('show');
 			$('#clr_btn').trigger("click"); 
 			}
