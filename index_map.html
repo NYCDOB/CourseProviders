@@ -567,8 +567,7 @@ $(document).ready(function(){
 				tooltip.html(
 					'NAME: ' +d.name + '</br>' +								
 					'ADDRESS: ' +d.address + '</br>' +					
-					'PHONE: ' +d.phone + '</br>' +	
-					'LANGUAGE: ' +d.language						
+					'PHONE: ' +d.phone						
 				)
 				if (d3.event.pageX > (width - 200)) {
 				   tooltip.style("left", (d3.event.pageX - 350) + "px");
@@ -604,7 +603,6 @@ $(document).ready(function(){
 				d.name = [d.Name];
 				d.address = [d.Address];
 				d.phone = [d.Phone];
-				d.language = [d.Language];
 			return d;
 				
 			});
