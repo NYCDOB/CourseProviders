@@ -1,9 +1,7 @@
-Name,Phone,Address,Language,Lat,Long
-"East River Development Alliance, Inc.",(718) 784-0877,"12-11 40th Avenue Long Island City, NY 11101",English,40.755989,-73.94214
-East New York Restoration Local Development Corporation ,1-718-676-5920,"1159 Elton St, Brooklyn, NY 11239",English,40.656142,-73.873396
-"Public Housing Communities, Inc.",(718) 783-1681,"466 Bergen St, Brooklyn, NY 11217",English,40.680816,-73.975941
-Northern Manhattan Coalition for Immigrant Rights,(212) 781-0355,"5030 Broadway, Suite 639, New York, NY 10034",English,40.868822,-73.916541
-"Staten Island Community Job Center, Inc.",(718) 442-7700,"774 Port Richmond Ave, Staten Island, NY 10302",English,40.625484,-74.144519
-"Catholic Charities Community Services, Archdiocese of New York ",(888) 744-7900,"213 Stanton St, New York, NY 10002",English,40.719382,-73.982421
-Workers Justice Project,347-889-6347,"365 Broadway, Brooklyn, NY 11211",English,40.707739,-73.955188
-New Immigrant Community Empowerment (NICE),718-205-1687,"71-29 Roosevelt Ave, Jackson Heights, NY 11372",English,40.746724,-73.8939
+Name,Phone,Address,Lat,Long
+Workers Justice Project,347-889-6347,"365 Broadway, Brooklyn, NY 11211",40.707739,-73.955188
+Workers Justice Project,718-600-0425,"2111 Bath Avenue, Brooklyn, NY 11214",40.599941,-73.999013
+The New York Committee for Occupational Safety and Health (NYCOSH),212-227-6440,"50 Broadway, 28th Floor, New York, NY 10004",40.706232,-74.01244
+Catholic Charities,718-414-1050,"623 East 138th Street, Bronx, NY 10454",40.806286,-73.915492
+New Immigrant Community Empowerment (NICE),718-205-1687,"71-29 Roosevelt Avenue, Jackson Heights, NY 11372",40.746724,-73.8939
+La Colmena,718-442-7700,"774 Port Richmond Avenue, Staten Island, NY 10302",40.625484,-74.144519
