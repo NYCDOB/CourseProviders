@@ -468,9 +468,59 @@ $(document).ready(function(){
 	var options = {
 					key: '9277c3027dc546989ea28d048ffa9ee7',
 					limit: 10,
-					proximity: '40.791384, -73.883770'
+					proximity: '40.791384, -73.883770',	
+					placeholder: 'e.g. 280 Broadway NYC', // the text in the empty search box
+					errorMessage: 'Nothing found.',
+					showResultIcons: false,
+					collapsed: true,
+					expand: 'click',
+					addResultToMap: true 
 	};
 	var control = L.Control.openCageSearch(options).addTo(map);
+	
+	
+	
+control.markGeocode = function (result) {
+            // JvdB single instance: singleton
+            L.Control.OpenCageSearch.instance = this;
+
+            if (result.bounds) {
+                this._map.fitBounds(result.bounds);
+            } else {
+                this._map.panTo(result.center);
+            }
+
+            if (this._geocodeMarker) {
+                this._map.removeLayer(this._geocodeMarker);
+            }
+            // JvdB add button in Popup to remove Marker
+			let popupDiv=document.createElement("div");
+			let locationText = document.createElement("h5");
+			locationText.innerText = result.name;
+			let closeMarkerDiv = document.createElement("div")
+			closeMarkerDiv.style.textAlign = "center";
+			let closeMarkerDivButton = document.createElement("button");
+			closeMarkerDivButton.innerText="Remove";
+			closeMarkerDivButton.setAttribute("title","Remove marker from map");
+			
+			closeMarkerDivButton.setAttribute("type","button");
+			closeMarkerDivButton.classList.add("btn","removemarkerbutton");
+			
+			
+			
+			
+			closeMarkerDivButton.addEventListener("click", e => {L.Control.OpenCageSearch.instance._map.removeLayer(L.Control.OpenCageSearch.instance._geocodeMarker) });
+			closeMarkerDiv.appendChild(closeMarkerDivButton);
+			popupDiv.appendChild(locationText);
+			popupDiv.appendChild(closeMarkerDiv);
+            this._geocodeMarker = new L.Marker(result.center)
+                .bindPopup(popupDiv)
+                .addTo(this._map)
+                .openPopup();
+            return this;
+        };
+
+
 	L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png',
 	     {attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
 
@@ -831,6 +881,7 @@ $(document).ready(function(){
 				pointsOverlay.addTo(map);	
 				map.setView([40.791384, -73.883770], 10);
 				$('#cpTable').DataTable().search( '' ).column(2).search( '' ).draw(); 
+				( document.querySelector(".leaflet-popup-pane").firstChild != null   ) && L.Control.OpenCageSearch.instance._map.removeLayer(L.Control.OpenCageSearch.instance._geocodeMarker);
 			});
 
 			function filterQry(selectedCourse, selectedSST, selectedLanguage){
