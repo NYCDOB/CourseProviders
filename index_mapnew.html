@@ -331,7 +331,7 @@
 								</select>
 						<span></span>  						
 						<label for="">Online?</label>
-						<input type="checkbox" id="onlinecheckbox" style="font-size:28; transform: scale(1.5);margin-left:3px;"></input>
+						<input type="checkbox" id="onlinecheckbox" style="font-size:28; transform: scale(1.5);margin-left:1px;"></input>
 						<span></span>  
 						<button class="filterBtn" id="fltr_btn"> APPLY </button>
 						<button class="clearBtn" id="clr_btn"> CLEAR </button>
@@ -729,7 +729,7 @@ control.markGeocode = function (result) {
 									text: 'Reset',
 									titleAttr: 'Reset Map, Reset All Data',
 									action: function(e, dt, node, config) {
-										
+
 										// zoom(latLngs);
 										// map.setView([40.791384, -73.883770], 10);
 
@@ -750,6 +750,7 @@ control.markGeocode = function (result) {
 										
 										$(".select-info").empty();          
 										$('#clr_btn').trigger( "click"  ); 
+										document.querySelector("#onlinecheckbox").checked=false;
 
 										table.search("").draw();  
 									}
@@ -885,6 +886,7 @@ control.markGeocode = function (result) {
 				selectedCourse = "allCourses";
 				selectedSST = "sstAll";
 				selectedLanguage = "all";
+				document.querySelector("#onlinecheckbox").checked=false;
 				latLngs = data.map(d => d.latLng);
 				points=data.map(d=>d);
 				map.removeLayer(pointsOverlay);
@@ -898,21 +900,18 @@ control.markGeocode = function (result) {
 				selectedCourse_cpID = course_data.filter(function(d){
 									return ((d.cID == selectedCourse^selectedCourse=="allCourses") && 
 												((selectedSST=="sstYes" && d.sst=="Y"?1:0) + 
-												(selectedSST=="sstNo" && d.sst=="N"?1:0)+(selectedSST=="sstAll" ? 1:0)==1)) &&
-												//( (document.querySelector("#onlinecheckbox").checked) ? d["Courses Online"].toLowerCase().charAt(0) == 'y' : true)
-												true;   //test for online availability
-												;
+												(selectedSST=="sstNo" && d.sst=="N"?1:0)+(selectedSST=="sstAll" ? 1:0)==1))												;
 									});				
 				var qualifyingCourseProviderIDs = selectedCourse_cpID
 						.map( (value) => value.CourseProviderID)
 						.filter(
 								(value,index,selectedCourse_cpID)=> selectedCourse_cpID.indexOf(value) == index
 						);
-				filteredData = data.filter(function(d,i){
-							return 	qualifyingCourseProviderIDs.indexOf(d.id) >= 0 &&
-							(selectedLanguage=="all" || d.offeredLanguages.includes(selectedLanguage))  &&
-							//true;
-							( (document.querySelector("#onlinecheckbox").checked) ? d["Courses Online"].toLowerCase().charAt(0) == 'y' : true);
+						ol=document.querySelector("#onlinecheckbox").checked;
+						filteredData = data.filter(function(d,i){
+						return 	qualifyingCourseProviderIDs.indexOf(d.id) >= 0 &&
+						(selectedLanguage=="all" || d.offeredLanguages.includes(selectedLanguage))  &&
+						( (ol) ? d["Courses Online"].toLowerCase().charAt(0) == 'y' : true);
 					})
 				qualifyingCourseProviderIDs = qualifyingCourseProviderIDs.map( a=>a.CourseProviderID  )
 				latLngs = filteredData.map(function(d){				
