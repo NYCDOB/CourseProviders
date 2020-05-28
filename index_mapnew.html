@@ -1,0 +1,986 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>Course Providers</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css' rel='stylesheet' type='text/css'/>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/opencagedata/leaflet-opencage-search@d4cbd36122efc8d17152b4177ed0e12165305441/dist/css/L.Control.OpenCageData.Search.min.css" />	
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.12/r-2.1.0/se-1.2.0/datatables.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/keen-dashboards.css" />
+	  <!--  link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"  -->
+	<link rel="stylesheet" type='text/css' href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type='text/css' href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type='text/css' href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">	
+    <style>
+			html { 
+				height: 100% 
+			}
+			body { 
+				height: 100%; 
+				margin: 0; 
+				padding: 0;
+				font-size: 12px;
+				font-family: Arial, Helvetica, sans-serif;	
+			}	
+			#map {
+				position: absolute;
+				height: 100%; 
+				width: 100%;
+				background-color: #333;
+				pointer-events: all;
+			}
+			
+			div.tooltip {
+				color: #222;
+				background: #fff;
+				padding: .5em;
+				text-shadow: #f5f5f5 0 1px 0;
+				border-radius: 7px; 
+				box-shadow: 0px 0px 2px 0px #a6a6a6; 
+				opacity: 0.9; 
+				position: absolute;
+				visibility: hidden;
+				font-family: 'Roboto', sans-serif;
+			}
+			
+			.point{
+				fill: #f00000;
+				fill-opacity: .7;
+			}
+			.pointSBS{
+				fill: #0bd7f4;
+				fill-opacity: .7;	
+			}			
+			#map-container{
+				height: 92vh;
+				width: 100%;
+				border: 3px solid black;
+				position: relative;
+				display: block;
+			}
+			#table-container{
+				height: 92vh;
+				width: 100%;
+				border: 3px solid black;
+				display: block;
+				background-color: white;
+			}
+
+			#cpTable{
+				height: 100%;
+				font-size: 12px;
+				
+			}
+			.courseHeading {
+				background-color: #7a7a7a;
+				color: #ffffff;
+				font-style: italic; 
+				font-weight: bold;
+				
+			}
+			
+			#dropdownCourses {
+			  width: 550px;
+			  max-width: 100%;
+			}
+			
+			#filterTxt {
+				font-size: 18px;
+				font-weight: 800;
+				color: #46A6DD;
+			}
+			
+			table.dataTable tbody tr:not(.selected):hover {  
+			   background-color:#dee1e5 !important;
+			}
+			
+			
+			.datatableHeading > dt-buttons{
+				color: green;
+			}
+
+			#cpTable input {
+				margin-left: 0.5em;
+				width: 140px;
+			}
+			
+
+
+			#searchCriteria {
+				font-size: 14px;
+				color: red;
+				display: hide;
+				font-weight: 700;
+				margin-left: 10px;
+			
+			}
+
+			td.control::before {
+				 content: attr(data-before);
+			
+			}
+
+
+			#filterDisplayMapData{
+				display: none;
+			}
+
+
+			#templateFilterQry {
+				display:none;
+			}
+
+
+
+			/* override Bootstrap's override of search styling; gives us the X to clear the search text */
+			input[type="search"]::-webkit-search-decoration,  
+			input[type="search"]::-webkit-search-cancel-button {   
+				-webkit-appearance: searchfield-cancel-button;
+			}
+
+
+			
+			td:not(.control) {
+				cursor: pointer;
+			}
+			
+			
+			td.control::before, td.control::after, td.control{
+				cursor: default;
+			}
+
+			.modal-header {
+			  background: #ececec;
+			  font-family: Oswald,sans-serif;
+			  color: #000;
+			}
+			.notFoundData {
+				color: red;
+				font-weight: bold;
+				position: relative;
+			}
+			.pagefooter a {
+					text-decoration: none;
+					color: red;
+					font-weight: bold; 
+					margin:auto 5px
+			}
+			.ui {
+				top: 10px;
+				left: 50px;
+				padding: 8px;
+				position: absolute;
+				background-color: #fff;
+				border: 2px solid #707070;
+				border-radius: 7px;
+				width: 250px;
+			}
+
+			.point_CP {
+			  position: relative;
+			  top: 3px;
+			  height: 15px;
+			  width: 15px;
+			  background-color: #f00000;
+			  border-radius: 50%;
+			  display: inline-block;
+			}
+
+			.point_SBS {
+			  position: relative;
+			  top: 3px;
+			  height: 15px;
+			  width: 15px;
+			  background-color: #0bd7f4;
+			  border-radius: 50%;
+			  display: inline-block;
+			}
+
+			.legend_label{
+				padding-left: 10px;
+				font-size: 14px;
+				display: inline-block;
+			}
+			.check_label{
+				padding-left: 5px;
+				font-size: 14px;
+				display: inline-block;
+			}
+			#searchCourse {
+				padding-left:8px;
+				font-size:1.3em;
+			}
+
+			#searchCourse span {
+				padding-right: 17px;
+			}
+			#searchCourse label {
+				font-weight: 700;
+				color:#666666;
+			}
+			#searchCourse button {
+				padding: 2px 3px 2px 3px;
+				background: #46A6DD;
+				color: white;
+				font-size: 14px;
+				display: inline-block;
+			}
+			#searchCourse button:hover {
+				background: #002878;
+			}
+    </style>
+</head>
+
+<body>
+<div class="row" style="padding-top:5px; padding-bottom:5px;">  
+		<div class="col-md-12">
+			<form id="searchCourse" class=""> 
+			<span id="filterTxt">FILTER</span>
+						<label for="">Course:</label>
+								<select id="dropdownCourses" >
+									<option value='allCourses' selected>All Courses</option>
+									<option class='courseHeading' value='' disabled>CONCRETE COURSES</option>
+									<option value='C01'>30-Hour Concrete Safety Manager</option>
+									<option value='C02'>8-Hour Concrete Safety Manager Refresher</option>
+									<option class='courseHeading' value='' disabled>CRANES & DERRICK COURSES</option>
+									<option value='C03'>16-Hour Rigger Supervisor Refresher</option>
+									<option value='C04'>16-Hour Rigging Worker</option>
+									<option value='C05'>30-Hour Climber/Tower Crane Rigger</option>
+									<option value='C06'>30-Hour Master Rigger</option>
+									<option value='C07'>30-Hour Special Rigger</option>
+									<option value='C08'>32-Hour Rigging Supervisor</option>
+									<option value='C09'>4-Hour Mast Climber User & Operator</option>
+									<option value='C10'>8-Hour Climber/Tower Crane Rigger Renewal</option>
+									<option value='C11'>8-Hour Hoisting Machine Operator Class B Rating</option>
+									<option value='C12'>8-Hour Master Rigger Renewal</option>
+									<option value='C13'>8-Hour Rigging Worker Refresher</option>
+									<option value='C14'>8-Hour Special Rigger Renewal</option>
+									<option class='courseHeading' value='' disabled>ELECTRICAL COURSES</option>
+									<option value='C15'>8-Hour Master & Special Electrician Renewal</option>
+									<option class='courseHeading' value='' disabled>GENERAL ELECTIVE COURSES</option>
+									<option value='C16'>1-Hour Electrocution Prevention</option>
+									<option value='C17'>1-Hour Fire Protection and Prevention</option>
+									<option value='C18'>1-Hour First Aid and CPR</option>
+									<option value='C19'>1-Hour Handing Heavy Materials and Proper Lifting Techniques</option>
+									<option value='C20'>1-Hour Hoisting and Rigging</option>
+									<option value='C21'>1-Hour Materials Handling, Storage, Use, and Disposal</option>
+									<option value='C22'>1-Hour Protection from Sun Exposure</option>
+									<option value='C23'>1-Hour Repetitive Motion Injuries</option>
+									<option value='C24'>1-Hour Stairways and Ladders</option>
+									<option value='C25'>1-Hour Tools-Hand and Power</option>
+									<option class='courseHeading' value='' disabled>PLUMBING COURSES</option>
+									<option value='C26'>16-Hour Limited Gas Work Qualification</option>
+									<option value='C27'>7-Hour Master Plumber & Master Suppression Piping Contractor Renewal</option>
+									<option value='C28'>7-Hour Periodic Gas Piping Inspector Qualification</option>
+									<option class='courseHeading' value='' disabled>PRESCRIBED COURSES</option>
+									<option value='C29'>2-Hour ‘Tool Box’ Talks</option>
+									<option value='C30'>2-Hour Drug and Alcohol Awareness</option>
+									<option value='C31'>2-Hour Pre-Task Meeting</option>
+									<option value='C32'>2-Hour Site Safety Plan (SSP)</option>
+									<option value='C33'>4-Hour Fall Prevention</option>
+									<option value='C34'>4-Hour Supported Scaffold User & Refresher</option>
+									<option value='C35'>8-Hour Fall Prevention</option>
+									<option value='C36'>8-Hour Site Safety Manager Refresher / Chapter 33</option>
+									<option class='courseHeading' value='' disabled>SAFETY COURSES</option>
+									<option value='C37'>40-Hour Site Safety Manager</option>
+									<option value='C38'>4-Hour Supported Scaffold User & Refresher</option>
+									<option value='C39'>8-Hour Site Safety Coordinator</option>
+									<option value='C40'>8-Hour Site Safety Manager Refresher / Chapter 33</option>
+									<option class='courseHeading' value='' disabled>SCAFFOLD COURSES</option>
+									<option value='C41'>16-Hour Suspended Scaffold User</option>
+									<option value='C42'>32-Hour Supported Scaffold Installer & Remover</option>
+									<option value='C43'>32-Hour Suspended Scaffold Supervisor</option>
+									<option value='C44'>4-Hour Supported Scaffold User & Refresher</option>
+									<option value='C45'>8-Hour Supported Scaffold Installer & Remover Refresher</option>
+									<option value='C46'>8-Hour Suspended Scaffold Supervisor Refresher</option>
+									<option value='C47'>8-Hour Suspended Scaffold User Refresher</option>
+									<option class='courseHeading' value='' disabled>SPECIALIZED ELECTIVE COURSES</option>
+									<option value='C48'>1-Hour Asbestos/Lead Awareness</option>
+									<option value='C49'>1-Hour Concrete and Masonry Construction</option>
+									<option value='C50'>1-Hour Confined Space Entry</option>
+									<option value='C51'>1-Hour Cranes, Derricks, Hoists, and Conveyors</option>
+									<option value='C52'>1-Hour Demolition Safety</option>
+									<option value='C53'>1-Hour Ergonomics</option>
+									<option value='C54'>1-Hour Excavations</option>
+									<option value='C55'>1-Hour Flag Person</option>
+									<option value='C56'>1-Hour Health and Safety Programs in Construction</option>
+									<option value='C57'>1-Hour Job Hazard Analysis</option>
+									<option value='C58'>1-Hour Motor Vehicles, Mechanized Equipment and Marine Operations</option>
+									<option value='C59'>1-Hour Personnel Lifts/Aerial Lifts/Scissor Lifts Safety</option>
+									<option value='C60'>1-Hour Risk Assessment and Accident Investigation</option>
+									<option value='C61'>1-Hour Scaffolds-Suspended</option>
+									<option value='C62'>1-Hour Steel Erection</option>
+									<option value='C63'>1-Hour Welding and Cutting</option>
+									<option value='C64'>2.5-Hour Foundations of Safety Leadership</option>
+									<option value='C65'>2-Hour Drug and Alcohol Awareness</option>
+									<option value='C66'>8-Hour Fall Prevention</option>
+								</select>
+								<span></span>
+						<label for="">SST Status:</label>
+								<select id="dropdownSST" >
+									<option value="sstAll" selected>Any</option>
+									<option value="sstYes">Only SST</option>	
+									<option value="sstNo">Non-SST</option>
+								</select>
+						<span></span>
+						<label for="">Language: </label>
+								<select id="dropdownLanguages" >
+								<option value="all">All</option>
+										<!-- dynamic -->
+								</select>
+						<span></span>  						
+						<label for="">Online?</label>
+						<input type="checkbox" id="onlinecheckbox" style="font-size:28; transform: scale(1.5);margin-left:3px;"></input>
+						<span></span>  
+						<button class="filterBtn" id="fltr_btn"> APPLY </button>
+						<button class="clearBtn" id="clr_btn"> CLEAR </button>
+			</form>	
+	</div>
+</div>
+
+
+
+<div class="row" >
+	<div class="col-md-9">
+		<div class="chart-stage" id="map-container" >
+			<div id="map">
+				<div id="ui-container" class="ui" style="z-index: 401">				
+					<h4>Legend</h4>						  
+						<span class="point_CP"></span><span class="legend_label">Course Providers</span>							
+					<br/>
+						<span class="point_SBS"></span><span class="legend_label">Worker Information Centers</span>	
+					<br/>
+					
+					</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3" >
+		<div class="chart-wrapper" id="table-container" >
+		  <div class="chart-stage" id="chart-01">
+					<table id="cpTable" class="display" style="width:100%">
+						<thead>
+							<tr>
+								<th></th>
+								<!-- <th class="">Provider Number</th>  -->
+								<th class="">Course Provider</th>
+								<th class="none">Provider Number</th>
+								<th class="none">Address</th>
+								<th class="none">Phone</th>
+								<th class="none">Fax</th>
+								<th class="none">Web Page</th>								
+							</tr>						
+						</thead>
+					</table>
+
+		  </div>
+		</div>
+	</div>
+</div>
+
+<div class="row pagefooter" >
+		<div class="col-sm-11">
+			<h6><a target="_blank" href="https://www1.nyc.gov/site/buildings/about/metrics-reports.page">Built by DOB Analytics Dev Squad</a></h6>
+		</div>
+		<div class="col-sm-1">
+			<h6 class="pull-right"><a target="_blank" href="https://www.surveymonkey.com/r/W35368J">Feedback </a></h6>
+		</div>
+</div>
+
+<div class="modal" id="helpModal" tabindex="-1" role="dialog" data-keyboard="false">  <!--  help modal     -->
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<div class="row">
+				<div class="col-md-3"><img src="https://www1.nyc.gov/assets/buildings/images/content/header/logo.png" style="margin: 0px 20px;"></div>
+				<div class="col-md-9">
+						<h2> Course Providers</h2>
+				</div>
+			</div>
+		</div>		
+		<div class="modal-body modal-md">
+		<div class="notFoundText" >
+			<h3> No results found for:</h3>
+				<div class="row">
+					<div class="col-sm-3">
+						<h4 class="">Category:</h4>
+					</div>	
+					<div>
+						<h4 class="spanCategory notFoundData"></h4>
+					</div>	
+				</div>
+
+				<div class="row">
+					<div class="col-sm-3">
+						<h4 class="">Course:</h4>
+					</div>	
+					<div>
+						<h4 class="spanCourse notFoundData"></h4>
+					</div>	
+				</div>
+
+				<div class="row">
+					<div class="col-sm-3">
+						<h4 class="">SST Status:</h4>
+					</div>	
+					<div>
+						<h4 class="spanSST notFoundData"></h4>
+					</div>	
+				</div>
+				<div class="row">
+					<div class="col-sm-3">
+						<h4 class="">Language:</h4>
+					</div>	
+					<div>
+						<h4 class="spanLanguage notFoundData"></h4>
+					</div>	
+				</div>
+			<h3>Please modify your search criteria.<br>Note: Map and table have been reset.</h3>
+		</div>
+	    <ul class="helpList" >
+			<li>Filtering</li>
+				<ol>
+					<li>Select any point on Map to filter and select the corresponding table row(s)</li>
+					<li>Select the X in the search box to clear filtered table data</li>
+					<li>Select <span class="glyphicon glyphicon-search" aria-hidden="true"></span> to search for address/point of interest</li>
+				</ol>
+			<li>Getting Details</li>
+				<ol>
+					<li>Select any point on Map to display an information popup</li>
+					<li>Select the <img src="https://datatables.net/examples/resources/details_open.png"></img> icon in the table to show more details</li>
+					<li>Select the <img src="https://datatables.net/examples/resources/details_close.png"></img> icon in the table to close details</li>
+				</ol>
+			<li><button disabled >Export</button> button downloads all data from original query results</li>
+			<li><button disabled >Reset</button> button restores table and map to original state</li>
+		</ul>
+		</div>
+    </div>
+  </div>
+</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+	<!-- address search -->
+	<script src="https://cdn.jsdelivr.net/gh/opencagedata/leaflet-opencage-search@d4cbd36122efc8d17152b4177ed0e12165305441/dist/js/L.Control.OpenCageSearch.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.9/d3.min.js"></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <!--  script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script -->
+	<script src="Leaflet.D3SvgOverlay-master/L.D3SvgOverlay.min.js"></script>	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/v/dt/dt-1.10.12/r-2.1.0/se-1.2.0/datatables.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+<script>	
+$(document).ready(function(){
+	//   $('#helpModal').on('hidden.bs.modal',() => {    $(".helpList").show()    }   );	
+	var map = L.map('map').setView([40.791384, -73.883770], 10);
+	/*   NEW address search support   */
+	var options = {
+					key: '9277c3027dc546989ea28d048ffa9ee7',
+					limit: 10,
+					proximity: '40.791384, -73.883770',	
+					placeholder: 'e.g. 280 Broadway NYC', // the text in the empty search box
+					errorMessage: 'Nothing found.',
+					showResultIcons: false,
+					collapsed: true,
+					expand: 'click',
+					addResultToMap: true 
+	};
+	var control = L.Control.openCageSearch(options).addTo(map);
+	
+	
+	
+control.markGeocode = function (result) {
+            // JvdB single instance: singleton
+            L.Control.OpenCageSearch.instance = this;
+
+            if (result.bounds) {
+                this._map.fitBounds(result.bounds);
+            } else {
+                this._map.panTo(result.center);
+            }
+
+            if (this._geocodeMarker) {
+                this._map.removeLayer(this._geocodeMarker);
+            }
+            // JvdB add button in Popup to remove Marker
+			let popupDiv=document.createElement("div");
+			let locationText = document.createElement("h5");
+			locationText.innerText = result.name;
+			let closeMarkerDiv = document.createElement("div")
+			closeMarkerDiv.style.textAlign = "center";
+			let closeMarkerDivButton = document.createElement("button");
+			closeMarkerDivButton.innerText="Remove";
+			closeMarkerDivButton.setAttribute("title","Remove marker from map");
+			
+			closeMarkerDivButton.setAttribute("type","button");
+			closeMarkerDivButton.classList.add("btn","removemarkerbutton");
+			
+			
+			
+			
+			closeMarkerDivButton.addEventListener("click", e => {L.Control.OpenCageSearch.instance._map.removeLayer(L.Control.OpenCageSearch.instance._geocodeMarker) });
+			closeMarkerDiv.appendChild(closeMarkerDivButton);
+			popupDiv.appendChild(locationText);
+			popupDiv.appendChild(closeMarkerDiv);
+            this._geocodeMarker = new L.Marker(result.center)
+                .bindPopup(popupDiv)
+                .addTo(this._map)
+                .openPopup();
+            return this;
+        };
+
+
+	L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png',
+	     {attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+
+	var tooltip = d3.select('body').append('div')
+		.on('mouseover', function(d, i){
+			tooltip.transition().duration(0);
+		})
+		.on('mouseout', function(d, i){
+			tooltip.transition().delay(500).style('visibility', 'hidden');
+		})
+		.attr('class', 'tooltip');
+
+	var width = $("#map").width(),
+		height = $("#map").height(),
+		points = [],
+				    	pointsSBS = [],
+		table_map = [],
+		filteredData,	
+		latLngs = [],
+	    	latLngsSBS = [],		
+		zoomSelect = 15,
+		selectedCourse="allCourses",
+		selectedSST="sstAll",
+		selectedLanguage="all",
+		selectedRecord,
+		selectedSST_cpID;
+		
+	var pointsOverlay = L.d3SvgOverlay(function(sel,proj){
+	var pointsUpd = sel.selectAll('circle').data(points);	
+	pointsUpd.enter()
+		.append('circle')
+		.attr('cx',function(d){return proj.latLngToLayerPoint(d.latLng).x;})
+		.attr('cy',function(d){return proj.latLngToLayerPoint(d.latLng).y;})
+		.attr('class', function(d){
+			return "point";
+		})
+
+		.on('click', function(d){
+			$('#cpTable').trigger( "click",d.id   ); 
+		
+			if(d3.select(this).style("fill-opacity") != 0){
+				tooltip.style("visibility", "visible");
+				tooltip.html(
+					'Provider ID: ' +d.id + '</br>' +								
+					'COMPANY NAME: ' +d.company + '</br>' +					
+					'ADDRESS: ' +d.Full_Address + '</br>' +	
+					'PHONE: ' +d.phone + '</br>' +	
+					'WEBSITE: ' + '<a href=' + (d.web.includes("http")?'':'http://')+d.web+ ' target="_blank">' + d.web + '</a>'
+					
+				)
+				if (d3.event.pageX > (width - 200)) {
+				   tooltip.style("left", (d3.event.pageX - 350) + "px");
+				} else {
+				   tooltip.style("left", (d3.event.pageX + 20) + "px")
+						.style("top", (d3.event.pageY -30) + "px");
+				}
+				if (d3.event.pageY > (height - 150)) {
+				   tooltip.style("top", (d3.event.pageY -100) + "px");
+				} else {
+				   tooltip.style("top", (d3.event.pageY -30) + "px");
+				}
+			}
+		})
+		.on("mouseover", function(d, i){
+			if(d3.select(this).style("fill-opacity") != 0){
+				tooltip.transition().duration(0); 
+				$(this).attr("style", "cursor: pointer; fill: #eef442; fill-opacity: 1;");
+			}
+		})
+		.on("mouseout", function(d, i){	
+			if(d3.select(this).style("fill-opacity") != 0){
+				$(this).attr("style", "stroke-width: 0px; fill-opacity: .7;");
+				return tooltip.transition().delay(500).style("visibility", "hidden"); 
+			}
+		});
+		pointsUpd.attr('r', 6 / proj.scale);
+		
+
+	});
+
+	var pointsOverlaySBS = L.d3SvgOverlay(function(sel,proj){
+	var pointsUpdSBS = sel.selectAll('circle').data(pointsSBS);	
+	pointsUpdSBS.enter()
+		.append('circle')
+		.attr('cx',function(d){return proj.latLngToLayerPoint(d.latLng).x;})
+		.attr('cy',function(d){return proj.latLngToLayerPoint(d.latLng).y;})
+		.attr('class', function(d){
+			return "pointSBS";
+		})
+
+		.on('click', function(d){
+			if(d3.select(this).style("fill-opacity") != 0){
+				tooltip.style("visibility", "visible");
+				tooltip.html(
+					'NAME: ' +d.name + '</br>' +								
+					'ADDRESS: ' +d.address + '</br>' +					
+					'PHONE: ' +d.phone						
+				)
+				if (d3.event.pageX > (width - 200)) {
+				   tooltip.style("left", (d3.event.pageX - 350) + "px");
+				} else {
+				   tooltip.style("left", (d3.event.pageX + 20) + "px")
+						.style("top", (d3.event.pageY -30) + "px");
+				}
+				if (d3.event.pageY > (height - 150)) {
+				   tooltip.style("top", (d3.event.pageY -100) + "px");
+				} else {
+				   tooltip.style("top", (d3.event.pageY -30) + "px");
+				}
+			}
+		})
+		.on("mouseover", function(d, i){
+			if(d3.select(this).style("fill-opacity") != 0){
+				tooltip.transition().duration(0); 
+				$(this).attr("style", "cursor: pointer; fill: #eef442; fill-opacity: 1;");
+			}
+		})
+		.on("mouseout", function(d, i){	
+			if(d3.select(this).style("fill-opacity") != 0){
+				$(this).attr("style", "stroke-width: 0px; fill-opacity: .7;");
+				return tooltip.transition().delay(500).style("visibility", "hidden"); 
+			}
+		});
+		pointsUpdSBS.attr('r', 6 / proj.scale);
+
+	});
+	d3.csv("data/SBS_WorkersInfoCenters.csv",function(data){
+				pointsSBS = data.map(function(d){
+				d.latLng = [+d.Lat,+d.Long];
+				d.name = [d.Name];
+				d.address = [d.Address];
+				d.phone = [d.Phone];
+			return d;
+				
+			});
+		pointsOverlaySBS.addTo(map);
+		latLngsSBS = data.map(function(d){				
+			return d.latLng;
+		});
+	});
+	function loadTable(data){
+			$(function(){
+				  var table = $('#cpTable').DataTable({
+						"searching": true, 
+						data: data,
+						'responsive': {
+							'details': {
+							   'type': 'inline',
+							   'target': 0
+							}
+						},
+						columnDefs: [
+									{
+									   'data': null,
+									   'defaultContent': '',
+									   'className': 'control',
+									   'orderable': false,
+									   'targets': 0
+
+									}
+						],
+						  'columns': [ 
+							 { 'data': null },  
+							 { 'data': "Company", "className":"parentRow"  },					 							 
+							 { 'data': "Provider Number" },
+							 { 'data': "Full_Address" },
+							 { 'data': "Business Phone" },
+							 { 'data': "Fax Number" },
+							 { 'data': "Web Page",
+							   'render': function(data,type,row,meta){ 
+									return '<a href=' + (data.includes("http") ? '' : 'http://') + data + ' target="_blank">' + (data.includes("http") ? '' : 'http://') + data + '</a>';
+							 }}  
+							 
+						  ],
+						  
+							"dom": 'r<"datatableHeading"Bf>tip',
+							"buttons": [
+							
+								// BASIC EXPORT (minified)
+								/*{extend: 'csvHtml5',text: 'Export Data',customize: function(csv){return csv;}},*/
+								{ // EXPORT ALL DATA, DISREGARD ANY SEARCH THAT IS APPLIED
+									extend: 'csv',
+									titleAttr: 'Download all data to CSV',
+									filename: "CourseProvidersData",
+									className: "csvExportClassname",
+									text: 'Export',
+									exportOptions: {
+										modifier: {
+											search: 'none'
+										},
+									columns: 'th:not(:first-child)'  //we don't need the first column (ie 0)
+									}
+								}
+								,
+								{ 
+									text: 'Reset',
+									titleAttr: 'Reset Map, Reset All Data',
+									action: function(e, dt, node, config) {
+										
+										// zoom(latLngs);
+										// map.setView([40.791384, -73.883770], 10);
+
+
+										d3.selectAll('.point').style("fill-opacity", function(d){
+													return "0.7";
+										});
+										
+										$("#cpTable .child ").hide();  
+
+										table.rows().every( function ( rowIdx, tableLoop, rowLoop ) {
+													this.nodes().to$().removeClass( 'selected' );
+													this.nodes().to$().removeClass( 'parent' );
+													this.nodes().to$().removeClass( 'child' );
+													this.child.hide();
+													this.nodes().to$().removeClass("shown");
+										} );
+										
+										$(".select-info").empty();          
+										$('#clr_btn').trigger( "click"  ); 
+
+										table.search("").draw();  
+									}
+								},
+								
+								{
+									text: 'Help',
+									titleAttr: 'Show Information',
+									action: function(e, dt, node, config) {
+												$('.helpList').show();	
+												$('.notFoundText').hide();													
+												$('#helpModal').modal('show');
+											}
+								}
+								
+							],						
+
+							'lengthChange': false,
+							'scrollY': '78vh',
+							'scrollCollapse': true,
+							'paging': false,
+							'order': [[1, "asc"]]
+					});
+					
+					
+			//  hilite & zoom map
+			$('#cpTable tbody ').on( 'click', "td.parentRow" ,function () {
+				tdParentRow=$(this).parent();
+				$(tdParentRow).toggleClass("selected");
+				$(tdParentRow).siblings().removeClass('selected');
+
+				if ( $(tdParentRow).hasClass('selected') ) {
+						for (var i=0; i < table.rows('.selected').data().length; i++){
+							selectedRecord = table.rows('.selected').data()[i]["Provider Number"];
+							var lat = table.rows('.selected').data()[i].Lat;
+							var lon = table.rows('.selected').data()[i].Long;
+							latlong = [lat,lon];
+						}
+						highlightPoint(selectedRecord);
+						zoomToSelected(latlong); 
+
+				} else {
+						d3.selectAll('.point')
+							.style("fill-opacity", function(d){
+								return "0.7";
+							});
+						zoom(latLngs);
+				}
+			});
+			$('#cpTable').on( 'click', function (e,vProviderID) {
+					if (vProviderID) {
+						table.search( vProviderID).draw();
+					}
+			})
+		});
+	};  //end loadTable()
+
+	function refreshTable(qualifyingCourseProviderIDs) {
+			searchVals = qualifyingCourseProviderIDs
+						.map(  (item)=> item.id  )
+						.join("|");
+			$('#cpTable').DataTable().column(2).search(searchVals,true,false);
+			$('#cpTable').DataTable().draw();
+	}
+	function isLang(allColNames) {
+			allColNames.forEach( function(element) {
+				if (element.indexOf("Lang_") >= 0) {
+					languages.push(element.replace("Lang_", ""));
+					$("#dropdownLanguages").append('<option value="' + element.replace("Lang_", "") + '">'+ element.replace("Lang_", "") + '</option>' );
+				}
+		})
+	}
+	var languages=[];
+	d3.csv("data/CourseProviders_MasterNEW.csv",function(data ){
+				points = data.map(function(d,i){
+				i==0?isLang(Object.keys(d3.values(data)[0])): null; //build language dropdown and languages
+				d.latLng = [+d.Lat,+d.Long];
+				d.id = d["Provider Number"];
+				d.company = [d.Company];
+				d.full_Address = [d.Full_Address];
+				d.phone = d["Business Phone"];
+				d.fax = d["Fax Number"];
+				d.web = d["Web Page"];
+				d.sstAprvd = d["SST Approved"];
+				d.offeredLanguages=
+						languages.map(function(languageColumn){ if ( d["Lang_"+languageColumn] == 1){return languageColumn}}).filter(Boolean);
+			return d;
+					
+			});  //end points declaration			
+		pointsOverlay.addTo(map);
+		latLngs = data.map(function(d){				
+			return d.latLng;
+		});
+		
+		loadTable(data);
+		d3.csv("data/CourseProviders_CoursesNEW.csv",function(course_data){
+			course_data.forEach(function(d){
+				d.cpID = [d.CourseProviderID];
+				d.cTopic = [d.CourseTopic];
+				d.course = [d.Course];
+				d.sst = [d.SST];  
+				d.cType = [d.CurriculumType];
+				d.cID = [d.CourseID];
+
+			return d;
+			});
+			d3.select("#dropdownCourses").on('change', function(){
+				selectedCourse = d3.select(this).property('value');
+			});
+			
+			d3.select("#dropdownSST").on('change', function(){
+				selectedSST = d3.select(this).property('value');
+			});
+
+			d3.select("#dropdownLanguages").on('change', function(){
+				selectedLanguage = d3.select(this).property('value');
+			});
+			
+			var filterClick = document.getElementById('fltr_btn');
+				filterClick.onclick = function(){
+					event.preventDefault();
+					selectedCourse = $( "#dropdownCourses option:selected" ).val();
+					selectedSST = $( "#dropdownSST option:selected" ).val();
+					selectedLanguage = $( "#dropdownLanguages option:selected" ).val();
+					$('#cpTable').DataTable().search( '' ).column(2).search( '' ).draw();
+					filterQry(selectedCourse, selectedSST, selectedLanguage);
+				}
+			$('#clr_btn').click( function(e){
+				e.preventDefault();
+				$("#dropdownCourses").val('allCourses');
+				$("#dropdownSST").val('sstAll');
+				$("#dropdownLanguages").val('all');
+				selectedCourse = "allCourses";
+				selectedSST = "sstAll";
+				selectedLanguage = "all";
+				latLngs = data.map(d => d.latLng);
+				points=data.map(d=>d);
+				map.removeLayer(pointsOverlay);
+				pointsOverlay.addTo(map);	
+				map.setView([40.791384, -73.883770], 10);
+				$('#cpTable').DataTable().search( '' ).column(2).search( '' ).draw(); 
+				( document.querySelector(".leaflet-popup-pane").firstChild != null   ) && L.Control.OpenCageSearch.instance._map.removeLayer(L.Control.OpenCageSearch.instance._geocodeMarker);
+			});
+
+			function filterQry(selectedCourse, selectedSST, selectedLanguage){
+				selectedCourse_cpID = course_data.filter(function(d){
+									return ((d.cID == selectedCourse^selectedCourse=="allCourses") && 
+												((selectedSST=="sstYes" && d.sst=="Y"?1:0) + 
+												(selectedSST=="sstNo" && d.sst=="N"?1:0)+(selectedSST=="sstAll" ? 1:0)==1)) &&
+												//( (document.querySelector("#onlinecheckbox").checked) ? d["Courses Online"].toLowerCase().charAt(0) == 'y' : true)
+												true;   //test for online availability
+												;
+									});				
+				var qualifyingCourseProviderIDs = selectedCourse_cpID
+						.map( (value) => value.CourseProviderID)
+						.filter(
+								(value,index,selectedCourse_cpID)=> selectedCourse_cpID.indexOf(value) == index
+						);
+				filteredData = data.filter(function(d,i){
+							return 	qualifyingCourseProviderIDs.indexOf(d.id) >= 0 &&
+							(selectedLanguage=="all" || d.offeredLanguages.includes(selectedLanguage))  &&
+							//true;
+							( (document.querySelector("#onlinecheckbox").checked) ? d["Courses Online"].toLowerCase().charAt(0) == 'y' : true);
+					})
+				qualifyingCourseProviderIDs = qualifyingCourseProviderIDs.map( a=>a.CourseProviderID  )
+				latLngs = filteredData.map(function(d){				
+					return d.latLng;
+				});
+				points = filteredData.map(function(d){
+					return d;
+				});
+				map.removeLayer(pointsOverlay);
+				pointsOverlay.addTo(map);	
+				zoom(latLngs);
+				//refreshTable(qualifyingCourseProviderIDs);	//redraw the table
+				refreshTable(filteredData);
+				if (selectedSST=="sstAll" && selectedCourse=="allCourses" && selectedLanguage=="all") {
+					$('#cpTable').DataTable().search('').draw();  //clear any search results
+					map.setView([40.791384, -73.883770], 10);
+				}
+			}
+		});	
+		
+	});  //end d3 master...csv loadTable
+	
+	function highlightPoint(layerID){   //this filters the data on the map , so that only one point is shown
+		d3.selectAll(".point")
+			.style("fill-opacity", function(d){
+				if(d["Provider Number"] == layerID)
+					{return "0.7"}
+				else
+					{return "0"};
+			})
+	}
+			
+	function zoomToSelected(latlong){
+			map.setView(latlong,zoomSelect);
+			map.invalidateSize();
+	}
+	
+	function zoom(latLngs){
+		if (latLngs === undefined || latLngs == 0){
+			var category = $("#dropdownCourses option:selected").prevAll(".courseHeading").html()
+			$(".spanCourse").empty().append($("#dropdownCourses option:selected").text());
+			$(".spanSST").empty().append($("#dropdownSST option:selected").text());
+			$(".spanLanguage").empty().append($("#dropdownLanguages option:selected").text());
+			$(".spanCategory").empty().append(category);
+			$('.helpList').hide();	
+			$('.notFoundText').show();	
+			//  $('#helpModal').modal('show').draggable({ handle: ".modal-header"});  //user can drag 
+			$('#helpModal').modal('show');
+			$('#clr_btn').trigger("click"); 
+			}
+		else
+			{
+			polyline = L.polyline(latLngs,{opacity:0}).addTo(map);
+			map.fitBounds(polyline.getBounds());				
+			map.removeLayer(polyline);
+			//map.setView([40.791384, -73.883770], 10);	
+			map.setView([40.791384, -73.883770], 10, {
+			  "animate": false,
+			  "pan": {
+				"duration": 10
+			  }
+			});
+		}
+	};
+	map.on('resize', function(){ 
+		map.invalidateSize();	
+	}); 
+});
+</script>
+</body>
+</html>
